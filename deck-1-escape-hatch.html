@@ -852,9 +852,9 @@
         <div class="slide-number">18 / 21</div>
     </div>
 
-    <!-- Slide 19: Cooperative Calculator -->
+    <!-- Slide 19: Cooperative Agrarian Calculator -->
     <div class="slide">
-        <h2>Cooperative Calculator</h2>
+        <h2>Cooperative Agrarian Calculator</h2>
         <div class="accent-line"></div>
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
             <!-- Left: Sliders -->
@@ -877,8 +877,8 @@
                 </div>
                 <div style="background: #2d4a3e; color: #fff; border-radius: 12px; padding: 15px; text-align: center;">
                     <p style="font-size: 0.9rem; color: #c4a77d; margin-bottom: 5px;">Net Collective Capital</p>
-                    <p style="font-size: 1.8rem; font-weight: 500; color: #7ec87e;">$<span id="net-capital">180,000</span></p>
-                    <p style="font-size: 0.8rem; color: #c4a77d;">Pool: $<span id="gross-capital">200,000</span> − Living: $<span id="living-costs">20,000</span>/yr</p>
+                    <p style="font-size: 1.8rem; font-weight: 500; color: #7ec87e;">$<span id="net-capital">0</span></p>
+                    <p style="font-size: 0.8rem; color: #c4a77d;">Pool: $<span id="gross-capital">200,000</span> − Living: $<span id="living-costs">288,000</span>/yr</p>
                 </div>
             </div>
             <!-- Right: Results -->
@@ -892,7 +892,7 @@
                     <div class="card" style="text-align: center; padding: 15px;">
                         <p style="font-size: 1.5rem; margin-bottom: 5px;">&#127968;</p>
                         <p style="font-size: 0.85rem; color: #8b7355;">Houses @ $5K</p>
-                        <p style="font-size: 1.6rem; font-weight: 500; color: #2d4a3e;"><span id="houses-result">36</span></p>
+                        <p style="font-size: 1.6rem; font-weight: 500; color: #2d4a3e;"><span id="houses-result">0</span></p>
                     </div>
                     <div class="card" style="text-align: center; padding: 15px;">
                         <p style="font-size: 1.5rem; margin-bottom: 5px;">&#128663;</p>
@@ -982,7 +982,7 @@
 
             const HOUSE_COST = 5000;
             const PEOPLE_PER_CAR = 4;
-            const LIVING_COST_PER_PERSON_PER_YEAR = 1000;
+            const LIVING_COST_PER_PERSON_PER_YEAR = 14400; // $1.2K/month * 12
             const WEEKLY_CHORE_HOURS = 49.5;
 
             function formatNumber(num) {
