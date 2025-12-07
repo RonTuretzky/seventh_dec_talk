@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Brunch Manifesto</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Georgia', serif;
+            background: #faf8f5;
+            color: #2a2a2a;
+            overflow: hidden;
+        }
+        .slide {
+            width: 100vw;
+            height: 100vh;
+            display: none;
+            padding: 60px 100px;
+            position: relative;
+            background: linear-gradient(135deg, #faf8f5 0%, #f0ebe3 100%);
+        }
+        .slide.active {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .slide-number {
+            position: absolute;
+            bottom: 30px;
+            right: 40px;
+            font-size: 14px;
+            color: #999;
+            font-family: monospace;
+        }
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 400;
+            margin-bottom: 30px;
+            color: #1a1a1a;
+            line-height: 1.2;
+            font-style: italic;
+        }
+        h2 {
+            font-size: 2.6rem;
+            font-weight: 400;
+            margin-bottom: 40px;
+            color: #1a1a1a;
+        }
+        p {
+            font-size: 1.6rem;
+            line-height: 1.9;
+            margin-bottom: 25px;
+            color: #444;
+        }
+        .casual {
+            font-style: italic;
+            color: #666;
+        }
+        .highlight {
+            background: linear-gradient(180deg, transparent 60%, #ffe066 60%);
+            padding: 0 4px;
+        }
+        .big {
+            font-size: 2.2rem;
+            line-height: 1.6;
+        }
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        li {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            padding-left: 40px;
+            position: relative;
+            color: #444;
+            line-height: 1.6;
+        }
+        li::before {
+            content: "~";
+            position: absolute;
+            left: 0;
+            color: #c4a77d;
+            font-size: 1.8rem;
+        }
+        .center {
+            text-align: center;
+            align-items: center;
+        }
+        .small {
+            font-size: 1.2rem;
+            color: #888;
+        }
+        .quote-block {
+            border-left: 4px solid #c4a77d;
+            padding-left: 30px;
+            margin: 40px 0;
+            font-style: italic;
+        }
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-top: 30px;
+        }
+        .card {
+            background: #fff;
+            padding: 35px;
+            border-radius: 8px;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+        }
+        .card h3 {
+            font-size: 1.4rem;
+            color: #1a1a1a;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+        .emoji {
+            font-size: 4rem;
+            margin-bottom: 30px;
+        }
+        .nav-hint {
+            position: fixed;
+            bottom: 30px;
+            left: 40px;
+            font-size: 12px;
+            color: #bbb;
+            font-family: monospace;
+        }
+        .punchline {
+            font-size: 2rem;
+            color: #1a1a1a;
+            margin-top: 40px;
+        }
+        table {
+            width: 80%;
+            margin: 30px 0;
+            border-collapse: collapse;
+            font-size: 1.2rem;
+        }
+        th, td {
+            padding: 18px 25px;
+            text-align: left;
+            border-bottom: 1px solid #e0d8cc;
+        }
+        th { color: #888; font-weight: 400; }
+        .strikethrough { text-decoration: line-through; color: #999; }
+    </style>
+</head>
+<body>
+    <!-- Slide 1: Title -->
+    <div class="slide active center">
+        <p class="emoji">🥂</p>
+        <h1>So Anyway, I'm Moving to Rural Japan</h1>
+        <p class="casual">a brunch manifesto</p>
+        <div class="slide-number">1 / 12</div>
+    </div>
+
+    <!-- Slide 2: The Situation -->
+    <div class="slide">
+        <h2>Here's the thing</h2>
+        <p class="big">We all know something's off.</p>
+        <p>AI's eating jobs. The middle class is a memory. Your rent is someone's passive income.</p>
+        <p>And every week there's a new geopolitical thing that makes you wonder if you should... do something?</p>
+        <p class="casual" style="margin-top: 40px;">But like, what? Move to Portugal? Learn to code? Buy gold?</p>
+        <div class="slide-number">2 / 12</div>
+    </div>
+
+    <!-- Slide 3: The Question -->
+    <div class="slide center">
+        <h2>Quick question:</h2>
+        <p class="big" style="margin-top: 40px;">Why don't you <span class="highlight">own</span> anything?</p>
+        <p style="margin-top: 50px;">Not equity in a company that might IPO.<br>
+        Not a house with a 30-year mortgage.<br>
+        Not crypto in an exchange.</p>
+        <p class="punchline">Like actually own. With people you trust. Something that makes stuff.</p>
+        <div class="slide-number">3 / 12</div>
+    </div>
+
+    <!-- Slide 4: The Pitch (Anti-Pitch) -->
+    <div class="slide">
+        <h2>This isn't a pitch</h2>
+        <p>There's no deck. No TAM/SAM/SOM. No ask.</p>
+        <p>This is just me, telling you over eggs, that there's a <span class="highlight">gap</span> in the world.</p>
+        <div class="quote-block">
+            <p>Japan has 8 million empty houses.<br>
+            Villages are paying people to move there.<br>
+            Land costs less than a used car.<br>
+            And they need workers so badly they're loosening visa rules.</p>
+        </div>
+        <p class="casual">That's... not nothing?</p>
+        <div class="slide-number">4 / 12</div>
+    </div>
+
+    <!-- Slide 5: The Math -->
+    <div class="slide">
+        <h2>Let's do some napkin math</h2>
+        <table>
+            <tr>
+                <th>Thing</th>
+                <th>Brooklyn</th>
+                <th>Rural Japan</th>
+            </tr>
+            <tr>
+                <td>House</td>
+                <td class="strikethrough">$800K</td>
+                <td>$0 - $30K</td>
+            </tr>
+            <tr>
+                <td>Monthly burn</td>
+                <td>$4,000+</td>
+                <td>$800 - $1,200</td>
+            </tr>
+            <tr>
+                <td>Healthcare</td>
+                <td>lol</td>
+                <td>National system</td>
+            </tr>
+            <tr>
+                <td>Vibes</td>
+                <td>Hustling</td>
+                <td>Existing</td>
+            </tr>
+        </table>
+        <p class="casual">I'm not saying it's easy. I'm saying the math... maths.</p>
+        <div class="slide-number">5 / 12</div>
+    </div>
+
+    <!-- Slide 6: The Commune Word -->
+    <div class="slide">
+        <h2>Yes, I said commune</h2>
+        <p>Not the creepy kind. Not the "one guy has all the answers" kind.</p>
+        <p>More like: <span class="highlight">what if your friend group owned a farm and some workshops together?</span></p>
+        <ul style="margin-top: 40px;">
+            <li>Shared equipment (tractors are expensive, it turns out)</li>
+            <li>Shared labor (you're good at building, I'm good at growing)</li>
+            <li>Shared risk (when one person has a bad year, we all eat)</li>
+        </ul>
+        <p class="casual" style="margin-top: 30px;">Revolutionary? Or just... how humans did things for most of history?</p>
+        <div class="slide-number">6 / 12</div>
+    </div>
+
+    <!-- Slide 7: The Crypto Part -->
+    <div class="slide">
+        <h2>Here's where it gets weird</h2>
+        <p>What if the commune had... <span class="highlight">insurance</span>?</p>
+        <p>Not from State Farm. From each other.</p>
+        <div class="card" style="margin-top: 40px; max-width: 800px;">
+            <h3>Mutual Peer Insurance, roughly:</h3>
+            <ul>
+                <li>Multiple communes pool resources</li>
+                <li>A prediction market (run by the communes themselves) tracks risks</li>
+                <li>Human rights declining in your area? Natural disaster? The insurance kicks in.</li>
+                <li>You relocate. To another commune in the network.</li>
+            </ul>
+        </div>
+        <p class="casual" style="margin-top: 30px;">It's hedging. But instead of hedging your portfolio, you're hedging your life.</p>
+        <div class="slide-number">7 / 12</div>
+    </div>
+
+    <!-- Slide 8: The Imperial Gap -->
+    <div class="slide">
+        <h2>A theory about empires</h2>
+        <p>Empires expand and contract. They can't control everything all the time.</p>
+        <p>There are always <span class="highlight">gaps</span>—places that aren't worth occupying, places that get forgotten, places in transition.</p>
+        <p style="margin-top: 30px;">Rural Japan is one of those gaps right now.</p>
+        <p>Depopulating villages. Aging infrastructure. Not strategically important.</p>
+        <p class="punchline">You don't fight imperialism by building a bigger army.<br>You find the places it doesn't care about, and you build there.</p>
+        <div class="slide-number">8 / 12</div>
+    </div>
+
+    <!-- Slide 9: The MVP -->
+    <div class="slide">
+        <h2>What's the minimum viable post-capitalism?</h2>
+        <p>Honestly? It's not that complicated:</p>
+        <ul style="margin-top: 40px;">
+            <li>A few industrial communes (making actual stuff)</li>
+            <li>Coordinating their economies with crypto (no banks, no middlemen)</li>
+            <li>Insuring each other against collapse</li>
+            <li>Sharing workers, resources, knowledge across borders</li>
+        </ul>
+        <p style="margin-top: 40px;">That's... it? That's the skeleton of something else.</p>
+        <p class="casual">Not utopia. Just: better than what we've got.</p>
+        <div class="slide-number">9 / 12</div>
+    </div>
+
+    <!-- Slide 10: The Vending Machine Story -->
+    <div class="slide">
+        <h2>Let me tell you about a vending machine</h2>
+        <p>In Japan, vending machines are everywhere. They're also a $60B industry.</p>
+        <p>What if the vending machine was <span class="highlight">owned by the workers who stock it</span>?</p>
+        <div class="card" style="margin-top: 30px; max-width: 800px;">
+            <h3>The mechanism:</h3>
+            <ul>
+                <li>Workers deposit collateral (2x machine cost)</li>
+                <li>Revenue splits automatically via smart contract</li>
+                <li>No payment processor taking 50% of margins</li>
+                <li>Machine pays for itself, then replicates</li>
+            </ul>
+        </div>
+        <p class="casual" style="margin-top: 30px;">That's not a metaphor. That's a business model. It works.</p>
+        <div class="slide-number">10 / 12</div>
+    </div>
+
+    <!-- Slide 11: The Question Again -->
+    <div class="slide center">
+        <h2>So here's my question</h2>
+        <p class="big" style="margin-top: 50px;">Why aren't you building towards something?</p>
+        <p style="margin-top: 40px;">
+            You have skills. You have friends. You have access to tools your grandparents couldn't dream of.
+        </p>
+        <p>
+            Land is cheap somewhere. Coordination is solved (mostly). The old systems are creaking.
+        </p>
+        <p class="punchline">What exactly are you waiting for?</p>
+        <div class="slide-number">11 / 12</div>
+    </div>
+
+    <!-- Slide 12: The End -->
+    <div class="slide center">
+        <p class="emoji">🌾</p>
+        <h1>Anyway</h1>
+        <p class="big">If you want to own something real, with people you trust, in a place that makes sense—</p>
+        <p style="margin-top: 40px;">There's a seat at the table.</p>
+        <p class="small" style="margin-top: 60px;">This is not financial advice. This is brunch.</p>
+        <div class="slide-number">12 / 12</div>
+    </div>
+
+    <div class="nav-hint">← → to navigate</div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        function showSlide(n) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (n + slides.length) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') showSlide(currentSlide + 1);
+            else if (e.key === 'ArrowLeft') showSlide(currentSlide - 1);
+        });
+        document.addEventListener('click', (e) => {
+            if (e.clientX > window.innerWidth / 2) showSlide(currentSlide + 1);
+            else showSlide(currentSlide - 1);
+        });
+    </script>
+</body>
+</html>
