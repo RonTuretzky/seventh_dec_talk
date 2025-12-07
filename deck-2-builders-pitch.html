@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JCommune: The Builder's Pitch</title>
+    <title>JCommune: The "Wait We're Actually Doing This?" Pitch</title>
     <style>
         * {
             margin: 0;
@@ -12,9 +12,9 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #0a0a0a;
-            color: #f0f0f0;
+            font-family: 'Georgia', serif;
+            background: #f5f9f5;
+            color: #3d3d3d;
             overflow: hidden;
         }
 
@@ -24,7 +24,7 @@
             display: none;
             padding: 50px 70px;
             position: relative;
-            background: linear-gradient(135deg, #0d1117 0%, #161b22 100%);
+            background: linear-gradient(135deg, #f5f9f5 0%, #e8f4e8 100%);
         }
 
         .slide.active {
@@ -38,14 +38,14 @@
             bottom: 25px;
             right: 35px;
             font-size: 13px;
-            color: #555;
+            color: #9bb89b;
         }
 
         h1 {
             font-size: 3.2rem;
-            font-weight: 300;
+            font-weight: 400;
             margin-bottom: 15px;
-            color: #fff;
+            color: #2d5a3d;
             line-height: 1.2;
         }
 
@@ -53,27 +53,28 @@
             font-size: 2.4rem;
             font-weight: 400;
             margin-bottom: 30px;
-            color: #fff;
+            color: #2d5a3d;
         }
 
         h3 {
             font-size: 1.4rem;
-            color: #58a6ff;
+            color: #5a8a5a;
             margin-bottom: 15px;
             font-weight: 500;
         }
 
         .subtitle {
             font-size: 1.4rem;
-            color: #8b949e;
+            color: #7a9a7a;
             margin-top: 15px;
+            font-style: italic;
         }
 
         p {
             font-size: 1.4rem;
             line-height: 1.7;
             margin-bottom: 15px;
-            color: #c9d1d9;
+            color: #4a5a4a;
         }
 
         ul {
@@ -86,23 +87,27 @@
             margin-bottom: 18px;
             padding-left: 30px;
             position: relative;
-            color: #c9d1d9;
+            color: #4a5a4a;
             line-height: 1.4;
         }
 
         li::before {
-            content: "→";
+            content: "*";
             position: absolute;
             left: 0;
-            color: #58a6ff;
+            color: #e07b53;
+            font-weight: bold;
+            font-size: 1.5rem;
         }
 
         .highlight {
-            color: #58a6ff;
+            color: #e07b53;
+            font-weight: 500;
         }
 
         .green {
-            color: #3fb950;
+            color: #4a8a4a;
+            font-weight: 500;
         }
 
         table {
@@ -115,33 +120,33 @@
         th, td {
             padding: 15px 20px;
             text-align: left;
-            border-bottom: 1px solid #30363d;
+            border-bottom: 1px solid #c8dcc8;
         }
 
         th {
-            color: #58a6ff;
+            color: #2d5a3d;
             font-weight: 500;
-            background: #161b22;
+            background: #dceadc;
         }
 
         td {
-            color: #c9d1d9;
+            color: #4a5a4a;
         }
 
         tr:hover td {
-            background: #1c2128;
+            background: #e8f4e8;
         }
 
         .pipeline-diagram {
             font-family: 'Courier New', monospace;
             font-size: 1.1rem;
-            background: #0d1117;
-            border: 1px solid #30363d;
+            background: #fff;
+            border: 2px dashed #5a8a5a;
             padding: 30px;
-            border-radius: 8px;
+            border-radius: 15px;
             margin: 20px 0;
             line-height: 1.8;
-            color: #58a6ff;
+            color: #2d5a3d;
             white-space: pre;
         }
 
@@ -160,10 +165,11 @@
         }
 
         .card {
-            background: #161b22;
-            border: 1px solid #30363d;
-            border-radius: 10px;
+            background: #fff;
+            border: 2px solid #b8d4b8;
+            border-radius: 15px;
             padding: 25px;
+            box-shadow: 3px 3px 0 #e07b53;
         }
 
         .card h3 {
@@ -187,16 +193,17 @@
 
         .accent-bar {
             width: 80px;
-            height: 3px;
-            background: #58a6ff;
+            height: 4px;
+            background: linear-gradient(90deg, #5a8a5a, #e07b53);
             margin-bottom: 25px;
+            border-radius: 2px;
         }
 
         .quote {
             font-size: 1.3rem;
             font-style: italic;
-            color: #8b949e;
-            border-left: 3px solid #58a6ff;
+            color: #7a9a7a;
+            border-left: 4px solid #e07b53;
             padding-left: 20px;
             margin: 25px 0;
         }
@@ -209,22 +216,22 @@
         }
 
         .stat-box {
-            background: #161b22;
-            border: 1px solid #30363d;
-            border-radius: 8px;
+            background: #fff;
+            border: 2px solid #b8d4b8;
+            border-radius: 12px;
             padding: 20px;
             text-align: center;
         }
 
         .stat-box .number {
             font-size: 2rem;
-            color: #58a6ff;
+            color: #e07b53;
             font-weight: 600;
         }
 
         .stat-box .label {
             font-size: 0.9rem;
-            color: #8b949e;
+            color: #7a9a7a;
             margin-top: 8px;
         }
 
@@ -236,20 +243,22 @@
         }
 
         .cta-box {
-            background: linear-gradient(135deg, #161b22 0%, #1c2128 100%);
-            border: 1px solid #58a6ff;
-            border-radius: 12px;
+            background: #fff;
+            border: 2px solid #2d5a3d;
+            border-radius: 15px;
             padding: 30px;
+            box-shadow: 4px 4px 0 #e07b53;
         }
 
         .cta-box.secondary {
-            border-color: #30363d;
+            border-color: #b8d4b8;
+            box-shadow: 4px 4px 0 #b8d4b8;
         }
 
         .tagline {
             font-size: 1.5rem;
             font-style: italic;
-            color: #6e7681;
+            color: #7a9a7a;
             margin-top: 40px;
             text-align: center;
         }
@@ -259,120 +268,144 @@
             bottom: 25px;
             left: 35px;
             font-size: 11px;
-            color: #30363d;
+            color: #9bb89b;
         }
 
         .comparison-highlight {
-            background: #1c2128;
+            background: #e8f4e8;
         }
 
         .small-text {
             font-size: 1.1rem;
+        }
+
+        .disclaimer {
+            font-size: 1rem;
+            color: #999;
+            font-style: italic;
+        }
+
+        .fun-callout {
+            background: #fff5e6;
+            border-left: 4px solid #e07b53;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 0 10px 10px 0;
         }
     </style>
 </head>
 <body>
     <!-- Slide 1: Title -->
     <div class="slide active center">
+        <p style="font-size: 3rem; margin-bottom: 20px;">*</p>
         <h1>JCommune</h1>
-        <p class="subtitle">Building Post-Capitalist Infrastructure in Rural Japan</p>
-        <p style="color: #6e7681; margin-top: 30px; font-size: 1.1rem;">From crypto cooperativism to physical community</p>
+        <p class="subtitle">The "Actually Building Post-Capitalist Infrastructure" Talk</p>
+        <p style="color: #7a9a7a; margin-top: 30px; font-size: 1.1rem;">(for folks who want to help make this real, not just vibe with the idea)</p>
+        <p class="disclaimer" style="margin-top: 30px;">Fractal Brunch - Brooklyn - pass the syrup</p>
         <div class="slide-number">1 / 14</div>
     </div>
 
     <!-- Slide 2: Lived Experience -->
     <div class="slide">
-        <h2>My Lived Experience</h2>
+        <h2>Okay Wait, Who Am I To Talk About This?</h2>
         <div class="accent-bar"></div>
-        <p>I lived in <span class="highlight">Neot Smadar</span> — a kibbutz in Israel.</p>
-        <p style="margin-bottom: 30px;">Art. Philosophy. Spirituality. Shared labor. No money internally.</p>
+        <p>I lived in a <span class="highlight">kibbutz in Israel</span> called Neot Smadar.</p>
+        <p style="margin-bottom: 30px;">Art. Philosophy. Meditation. Shared labor. Internal economy without money. The whole thing.</p>
 
         <div class="two-column">
             <div class="card">
-                <h3 class="green">What Worked</h3>
+                <h3 class="green">The Good Stuff</h3>
                 <ul>
-                    <li>Deep belonging</li>
-                    <li>Meaning beyond career</li>
-                    <li>Collective child-rearing</li>
+                    <li>Actually felt like I belonged somewhere</li>
+                    <li>Work meant something beyond a paycheck</li>
+                    <li>Kids raised by a whole community (revolutionary)</li>
                 </ul>
             </div>
             <div class="card">
-                <h3 style="color: #f85149;">What Didn't Scale</h3>
+                <h3 style="color: #c45a3a;">The Frustrations</h3>
                 <ul>
-                    <li>No coordination tooling</li>
-                    <li>Isolated from global networks</li>
-                    <li>Couldn't replicate easily</li>
+                    <li>Zero coordination tech (it's 2024 y'all)</li>
+                    <li>Cut off from the rest of the world</li>
+                    <li>Couldn't easily start new ones elsewhere</li>
                 </ul>
             </div>
         </div>
-        <p class="quote">I left spiritually free but geographically trapped.</p>
+        <p class="quote">I left feeling spiritually free but stuck on how to scale it. That's what we're fixing.</p>
         <div class="slide-number">2 / 14</div>
     </div>
 
     <!-- Slide 3: Collapse Hedge -->
     <div class="slide">
-        <h2>The Global Collapse Hedge</h2>
+        <h2>The "Stuff Is Getting Weird" Analysis</h2>
         <div class="accent-bar"></div>
-        <p class="small-text">We're not doomers. We're hedge builders.</p>
+        <p class="small-text">Look, we're not preppers. But we're also not ignoring the obvious:</p>
 
         <table style="margin-top: 30px;">
             <tr>
-                <th>Risk</th>
-                <th>Trajectory</th>
+                <th>Thing</th>
+                <th>What's Happening</th>
+                <th>How We Feel About It</th>
             </tr>
             <tr>
-                <td>AI job displacement</td>
-                <td><span style="color: #f85149;">Accelerating</span></td>
+                <td>AI & jobs</td>
+                <td><span style="color: #c45a3a;">It's speeding up</span></td>
+                <td>nervous laughter</td>
             </tr>
             <tr>
-                <td>Middle class erosion</td>
-                <td><span style="color: #f85149;">Continuing</span></td>
+                <td>Middle class</td>
+                <td><span style="color: #c45a3a;">Still shrinking</span></td>
+                <td>gestures at rent prices</td>
             </tr>
             <tr>
-                <td>International tensions</td>
-                <td><span style="color: #f85149;">Rising</span></td>
+                <td>Global tensions</td>
+                <td><span style="color: #c45a3a;">Not great!</span></td>
+                <td>changes subject</td>
             </tr>
             <tr>
-                <td>Climate instability</td>
-                <td><span style="color: #f85149;">Worsening</span></td>
+                <td>Climate</td>
+                <td><span style="color: #c45a3a;">We all know</span></td>
+                <td>orders another mimosa</td>
             </tr>
         </table>
 
-        <p style="margin-top: 30px;"><span class="highlight">Question:</span> Where do you want to be when things get weird?</p>
-        <p><span class="green">Answer:</span> Somewhere with food sovereignty, community, and low costs.</p>
+        <div class="fun-callout">
+            <strong>The question isn't "will things change?"</strong> It's "where do you want to be when they do?"
+            <br><span class="green">Our answer:</span> Somewhere with food, community, and low costs.
+        </div>
         <div class="slide-number">3 / 14</div>
     </div>
 
     <!-- Slide 4: Why Japan -->
     <div class="slide">
-        <h2>Why Japan Specifically</h2>
+        <h2>Why Japan Is Weirdly Perfect Right Now</h2>
         <div class="accent-bar"></div>
 
         <div class="two-column">
             <div>
-                <h3>Demographics Working For Us</h3>
+                <h3>Demographics (in our favor)</h3>
                 <ul>
-                    <li>Birth rate collapse → depopulated villages</li>
-                    <li>Labor shortage → immigration opening</li>
-                    <li>Aging population → land abandoned</li>
+                    <li>Birth rate is very low = empty villages</li>
+                    <li>Labor shortage = they want immigrants</li>
+                    <li>Aging population = land needs new owners</li>
                 </ul>
             </div>
             <div>
-                <h3>Geopolitics</h3>
+                <h3>Also Nice</h3>
                 <ul>
-                    <li>Nuclear umbrella (stability hedge)</li>
-                    <li>Distance from conflict zones</li>
-                    <li>Strong rule of law</li>
+                    <li>Politically stable (relatively)</li>
+                    <li>Far from most conflict zones</li>
+                    <li>Strong institutions, rule of law</li>
+                    <li>Trains that actually work</li>
                 </ul>
             </div>
         </div>
 
         <div class="card" style="margin-top: 30px;">
-            <h3>Economics</h3>
+            <h3>The Money Part</h3>
             <ul style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px;">
-                <li>Akiya houses: <span class="green">free or &lt;$10K</span></li>
-                <li>Agri equipment via labor leverage</li>
-                <li>Agrarian cooperative visa paths</li>
+                <li>Akiya houses: <span class="green">free to $10K</span></li>
+                <li>Equipment via labor cooperatives</li>
+                <li>Agricultural visa pathways</li>
             </ul>
         </div>
         <div class="slide-number">4 / 14</div>
@@ -380,12 +413,12 @@
 
     <!-- Slide 5: The Numbers -->
     <div class="slide">
-        <h2>The Numbers</h2>
+        <h2>The Numbers (For The Spreadsheet People)</h2>
         <div class="accent-bar"></div>
 
         <table>
             <tr>
-                <th>Metric</th>
+                <th>What You Need</th>
                 <th>Japan (Rural)</th>
                 <th>Portugal</th>
                 <th>US (Rural)</th>
@@ -397,7 +430,7 @@
                 <td>$100K+</td>
             </tr>
             <tr class="comparison-highlight">
-                <td>Monthly Cost of Living</td>
+                <td>Monthly Living</td>
                 <td class="green">$800-1200</td>
                 <td>$1500-2000</td>
                 <td>$2000+</td>
@@ -406,156 +439,159 @@
                 <td>Quality of Life</td>
                 <td class="green">High</td>
                 <td>High</td>
-                <td>Medium</td>
+                <td>It depends...</td>
             </tr>
             <tr>
-                <td>Visa Difficulty</td>
+                <td>Getting a Visa</td>
                 <td>Medium</td>
-                <td>Hard</td>
-                <td>N/A</td>
+                <td>Hard (getting harder)</td>
+                <td>You're already there I guess?</td>
             </tr>
             <tr>
-                <td>Community Infrastructure</td>
-                <td class="highlight">Building</td>
-                <td>Saturated</td>
+                <td>Existing Community</td>
+                <td class="highlight">We're building it</td>
+                <td>Crowded with nomads</td>
                 <td>Sparse</td>
             </tr>
         </table>
 
-        <p style="margin-top: 20px; text-align: center;"><span class="highlight">Quality of life to cost of living ratio is unmatched.</span></p>
+        <p style="margin-top: 20px; text-align: center;"><span class="highlight">Quality/cost ratio is genuinely unmatched.</span> That's not hype.</p>
         <div class="slide-number">5 / 14</div>
     </div>
 
     <!-- Slide 6: Ecosystem -->
     <div class="slide">
-        <h2>Akiya Collective & The Ecosystem</h2>
+        <h2>We're Not The Only Ones Doing This</h2>
         <div class="accent-bar"></div>
 
         <ul>
-            <li><span class="highlight">Akiya Collective</span> — proving rural revitalization works</li>
-            <li><span class="highlight">Zu City Japan</span> — network state energy, but we're the antithesis</li>
+            <li><span class="highlight">Akiya Collective</span> (akiyacollective.org) is already revitalizing rural Japan</li>
+            <li><span class="highlight">Zu City Japan</span> exists — they have that network state energy (but we're doing something different)</li>
         </ul>
 
         <div class="card" style="margin-top: 30px;">
-            <h3>Our Approach vs. Network States</h3>
+            <h3>What Makes Us Different From "Network States"</h3>
             <ul>
-                <li>Coordination synthesis, not exit fantasy</li>
-                <li>Non-class-gated, no VC landlords</li>
-                <li>Building <span class="green">with</span> villages, not on top of them</li>
+                <li>We're not trying to "exit" society — we're building parallel infrastructure</li>
+                <li>No wealth requirements. No VC landlords.</li>
+                <li>Building <span class="green">with</span> existing villages, not colonizing them</li>
             </ul>
         </div>
 
-        <p style="margin-top: 30px;">Leveraging Japan's labor shortage for:</p>
+        <p style="margin-top: 30px;">Japan's labor shortage means we can actually get:</p>
         <ul>
             <li>Agricultural equipment cooperatives</li>
-            <li>Rural infrastructure grants</li>
-            <li>Long-term visa pathways</li>
+            <li>Rural development grants</li>
+            <li>Long-term visa pathways for agrarian work</li>
         </ul>
         <div class="slide-number">6 / 14</div>
     </div>
 
     <!-- Slide 7: Crypto Cooperativism Stack -->
     <div class="slide">
-        <h2>The Crypto Cooperativism Stack</h2>
+        <h2>The Crypto Stuff (It's Not What You Think)</h2>
         <div class="accent-bar"></div>
 
-        <p class="small-text">Existing infrastructure we're building on:</p>
+        <p class="small-text">We're building on existing cooperative infrastructure:</p>
 
         <table style="width: 70%;">
             <tr>
                 <th>Project</th>
-                <th>Role</th>
+                <th>What It Does</th>
             </tr>
             <tr>
                 <td>Bread Coop</td>
-                <td>Worker-owned dev shop model</td>
+                <td>Worker-owned dev shop (we're in this one)</td>
             </tr>
             <tr>
                 <td>COVA</td>
-                <td>Cooperative governance tooling</td>
+                <td>Governance tools for cooperatives</td>
             </tr>
             <tr>
                 <td>dOrg</td>
-                <td>DAO-native coordination</td>
+                <td>DAO-native coordination (they've been doing this for years)</td>
             </tr>
         </table>
 
         <div class="stat-grid" style="width: 60%; margin-top: 40px;">
             <div class="stat-box" style="grid-column: span 2;">
                 <div class="number">10%</div>
-                <div class="label">of global GDP is cooperative economics</div>
+                <div class="label">of global GDP is already cooperative economics</div>
             </div>
             <div class="stat-box" style="grid-column: span 2;">
                 <div class="number">3M+</div>
-                <div class="label">cooperatives worldwide</div>
+                <div class="label">cooperatives exist worldwide</div>
             </div>
         </div>
 
-        <p style="margin-top: 20px;">This isn't experimental. It's <span class="green">proven at scale</span>.</p>
+        <p style="margin-top: 20px;">This isn't experimental. It's <span class="green">proven at scale</span>. We're just adding better coordination tooling.</p>
         <div class="slide-number">7 / 14</div>
     </div>
 
     <!-- Slide 8: Cypherpunk Commune -->
     <div class="slide">
-        <h2>Cypherpunk Commune</h2>
+        <h2>Crypto as Coordination, Not Speculation</h2>
         <div class="accent-bar"></div>
 
-        <p>Crypto isn't about number go up. It's about:</p>
+        <p>Before you roll your eyes: we're not talking about number-go-up. We're talking about:</p>
 
         <div class="two-column" style="margin-top: 30px;">
             <div class="card">
-                <h3>Cryptography as Defensive Weapon</h3>
+                <h3>Privacy & Sovereignty</h3>
                 <ul>
-                    <li>Data privacy from states and corps</li>
-                    <li>Collective sovereignty infrastructure</li>
-                    <li>Censorship-resistant coordination</li>
+                    <li>Your commune data isn't Amazon's business</li>
+                    <li>Collective ownership that's actually verifiable</li>
+                    <li>Decision-making that can't be censored</li>
                 </ul>
             </div>
             <div class="card">
-                <h3>Principles</h3>
+                <h3>Principles (No Cults)</h3>
                 <ul>
-                    <li><span class="highlight">Secularism</span> — spirituality without hierarchy</li>
-                    <li><span class="highlight">Non-cult</span> — explicit, not implicit norms</li>
-                    <li><span class="highlight">Open source</span> — forkable, auditable</li>
+                    <li><span class="highlight">Secular</span> — spirituality without hierarchy</li>
+                    <li><span class="highlight">Explicit norms</span> — written down, not implied</li>
+                    <li><span class="highlight">Open source</span> — fork it if you don't like us</li>
                 </ul>
             </div>
         </div>
 
-        <p style="margin-top: 40px; text-align: center; color: #8b949e;">Solar punk dreams. Lunar punk operational security.</p>
+        <p class="quote" style="margin-top: 40px;">Solarpunk dreams with lunarpunk operational security. (That's a compliment to both.)</p>
         <div class="slide-number">8 / 14</div>
     </div>
 
     <!-- Slide 9: Three Products -->
     <div class="slide">
-        <h2>Three Products</h2>
+        <h2>Three Things We're Actually Building</h2>
         <div class="accent-bar"></div>
 
         <div class="three-column">
             <div class="card">
-                <h3>1. Rural Industrial Commune</h3>
+                <h3>1. Rural Commune</h3>
                 <ul>
-                    <li>Shared agricultural production</li>
+                    <li>Actual farms & gardens</li>
                     <li>Maker spaces, fabrication</li>
-                    <li>Collective equipment</li>
-                    <li>Full residency model</li>
+                    <li>Shared equipment</li>
+                    <li>Full residency option</li>
                 </ul>
+                <p class="disclaimer" style="margin-top: 10px;">(the countryside version)</p>
             </div>
             <div class="card">
-                <h3>2. Urban Collective App</h3>
+                <h3>2. Urban Coordination App</h3>
                 <ul>
-                    <li>City-based coordination</li>
-                    <li>Resource sharing, mutual aid</li>
-                    <li>Gateway to rural network</li>
-                    <li>For those not ready to relocate</li>
+                    <li>City-based mutual aid</li>
+                    <li>Resource sharing</li>
+                    <li>Entry point to rural network</li>
+                    <li>For folks not ready to relocate</li>
                 </ul>
+                <p class="disclaimer" style="margin-top: 10px;">(for city people like us)</p>
             </div>
             <div class="card">
                 <h3>3. Residency Program</h3>
                 <ul>
                     <li><span class="highlight">Own</span> — permanent stake</li>
-                    <li><span class="highlight">Timeshare</span> — seasonal access</li>
-                    <li><span class="highlight">Networked</span> — multi-location</li>
+                    <li><span class="highlight">Timeshare</span> — seasonal visits</li>
+                    <li><span class="highlight">Networked</span> — multiple locations</li>
                 </ul>
+                <p class="disclaimer" style="margin-top: 10px;">(flexible commitment levels)</p>
             </div>
         </div>
         <div class="slide-number">9 / 14</div>
@@ -563,156 +599,158 @@
 
     <!-- Slide 10: Emotional Core -->
     <div class="slide">
-        <h2>The Emotional Core</h2>
+        <h2>What Are We Actually Solving For?</h2>
         <div class="accent-bar"></div>
 
-        <p class="small-text" style="margin-bottom: 20px;">What we're actually solving for:</p>
+        <p class="small-text" style="margin-bottom: 20px;">Let's be real about what's broken and what we're offering:</p>
 
         <table>
             <tr>
-                <th>Current State</th>
-                <th>JCommune State</th>
+                <th>How It Feels Now</th>
+                <th>What We're Building Toward</th>
             </tr>
             <tr>
-                <td>Spiritually imprisoned</td>
-                <td class="green">Spiritually free</td>
+                <td>"I'm exhausted and lonely but also too tired to socialize"</td>
+                <td class="green">Community that doesn't require extra energy</td>
             </tr>
             <tr>
-                <td>Atomized</td>
-                <td class="green">Embedded in community</td>
+                <td>"I'm just a cog in a machine I don't believe in"</td>
+                <td class="green">Work that matters to people you care about</td>
             </tr>
             <tr>
-                <td>Nuclear family child-rearing</td>
-                <td class="green">Village child-rearing</td>
+                <td>"Having kids seems impossible/insane"</td>
+                <td class="green">Village-style child-rearing (shared responsibility)</td>
             </tr>
             <tr>
-                <td>Retirement anxiety</td>
-                <td class="green">Collective safety net</td>
+                <td>"Retirement??? lol"</td>
+                <td class="green">Collective safety net that doesn't require millions</td>
             </tr>
             <tr>
-                <td>Meaning from career</td>
-                <td class="green">Meaning from contribution</td>
+                <td>"My job is my whole identity and that's bad"</td>
+                <td class="green">Meaning from contribution, not title</td>
             </tr>
         </table>
 
-        <p style="margin-top: 30px;"><span class="highlight">Post-capitalist science:</span> proving these models work empirically.</p>
         <div class="slide-number">10 / 14</div>
     </div>
 
     <!-- Slide 11: Who This Is For -->
     <div class="slide">
-        <h2>Who This Is For</h2>
+        <h2>This Isn't For Everyone (And That's Fine)</h2>
         <div class="accent-bar"></div>
 
-        <p style="font-size: 1.5rem; margin-bottom: 30px;">This is <span style="color: #f85149;">NOT</span> for everyone. We say this upfront.</p>
+        <p style="font-size: 1.3rem; margin-bottom: 30px;">Honestly? A lot of people will hate this. Here's who it's for and who it's not:</p>
 
         <div class="two-column">
             <div class="card">
-                <h3 class="green">Good Fit</h3>
+                <h3 class="green">Probably A Good Fit</h3>
                 <ul>
-                    <li>Want interdependence, not just independence</li>
-                    <li>Willing to do physical labor</li>
-                    <li>Can handle group decision-making</li>
-                    <li>Seeking meaning beyond career</li>
-                    <li>Long time horizon</li>
+                    <li>You want interdependence, not just independence</li>
+                    <li>Physical labor doesn't scare you</li>
+                    <li>Group decisions > unilateral control</li>
+                    <li>Long time horizons (years, not months)</li>
+                    <li>You want to BUILD, not just consume</li>
                 </ul>
             </div>
             <div class="card">
-                <h3 style="color: #f85149;">Not a Fit</h3>
+                <h3 style="color: #c45a3a;">Maybe Not</h3>
                 <ul>
-                    <li>Need full autonomy</li>
-                    <li>Uncomfortable with shared resources</li>
-                    <li>Looking for a vacation spot</li>
-                    <li>Want someone else to build it</li>
+                    <li>You need complete autonomy always</li>
+                    <li>Sharing things stresses you out</li>
+                    <li>You want a vacation home</li>
+                    <li>You expect someone else to build it for you</li>
+                    <li>You're looking for an escape, not a project</li>
                 </ul>
             </div>
         </div>
 
-        <p style="margin-top: 30px; color: #8b949e;">Rural vs urban. Temporal vs permanent. Multi-gen vs single-gen. We have options.</p>
+        <p style="margin-top: 20px; color: #7a9a7a;">We have options: rural or urban, temporary or permanent, multi-generational or not.</p>
         <div class="slide-number">11 / 14</div>
     </div>
 
     <!-- Slide 12: Pipeline -->
     <div class="slide">
-        <h2>The Pipeline</h2>
+        <h2>How You Actually Get Involved</h2>
         <div class="accent-bar"></div>
 
         <div class="pipeline-diagram">
-                        ┌─────────────────┐
-                        │  Decentral Park │
-                        │     Meetups     │
-                        └────────┬────────┘
-                                 │
-                        ┌────────▼────────┐
-                        │    AGGroup      │
-                        │   (Builders)    │
-                        └────────┬────────┘
-                                 │
-          ┌──────────────────────┼──────────────────────┐
-          │                      │                      │
- ┌────────▼────────┐   ┌────────▼────────┐   ┌────────▼────────┐
- │     Rural       │   │     Urban       │   │   Residency     │
- │    Commune      │   │      App        │   │    Program      │
- └─────────────────┘   └─────────────────┘   └─────────────────┘</div>
+                        +-----------------+
+                        |  Fractal Brunch |   <-- you are here!
+                        | (Brooklyn, etc) |
+                        +-------+---------+
+                                |
+                        +-------v---------+
+                        |    AGGroup      |   <-- for builders
+                        | (coordination)  |
+                        +-------+---------+
+                                |
+          +---------------------+---------------------+
+          |                     |                     |
++---------v--------+  +---------v--------+  +---------v--------+
+|      Rural       |  |      Urban       |  |    Residency     |
+|     Commune      |  |       App        |  |     Program      |
++------------------+  +------------------+  +------------------+</div>
 
-        <p style="text-align: center; margin-top: 20px;">Your entry points exist at every level.</p>
+        <p style="text-align: center; margin-top: 20px;">Entry points exist at every level. Start where you're comfortable.</p>
         <div class="slide-number">12 / 14</div>
     </div>
 
     <!-- Slide 13: Two Paths -->
     <div class="slide">
-        <h2>Two Paths Forward</h2>
+        <h2>What Do You Want To Do?</h2>
         <div class="accent-bar"></div>
 
         <div class="cta-section">
             <div class="cta-box">
-                <h3>For Builders</h3>
-                <p style="font-size: 1.2rem;"><span class="highlight">AGGroup</span> — the coordination layer</p>
+                <h3>I Want To Build This</h3>
+                <p style="font-size: 1.2rem;"><span class="highlight">AGGroup</span> is the coordination layer. We need:</p>
                 <ul style="margin-top: 15px;">
-                    <li>Crypto cooperativism infrastructure</li>
-                    <li>Governance tooling development</li>
-                    <li>Physical site planning</li>
+                    <li>Crypto/cooperative infrastructure devs</li>
+                    <li>Governance design nerds</li>
+                    <li>Physical site planning people</li>
+                    <li>Anyone who wants to wrangle logistics</li>
                 </ul>
-                <p style="margin-top: 20px; color: #58a6ff;">[AGGroup application]</p>
             </div>
             <div class="cta-box secondary">
-                <h3>For Residents</h3>
-                <p style="font-size: 1.2rem;"><span class="highlight">Residency Program</span> — 2025 cohort</p>
+                <h3>I Want To Live There (Eventually)</h3>
+                <p style="font-size: 1.2rem;"><span class="highlight">Residency Program</span> — 2025 cohort forming:</p>
                 <ul style="margin-top: 15px;">
                     <li>Own / Timeshare / Networked tracks</li>
-                    <li>Application process open</li>
-                    <li>Site visits available</li>
+                    <li>Applications opening soon</li>
+                    <li>Site visits can be arranged</li>
                 </ul>
-                <p style="margin-top: 20px; color: #58a6ff;">[Residency application]</p>
             </div>
         </div>
 
-        <p style="text-align: center; margin-top: 30px;"><span class="highlight">Decentral Park Meetup</span> — start here → [Next event info]</p>
+        <p style="text-align: center; margin-top: 30px;"><span class="highlight">Decentral Park Meetups</span> and <span class="highlight">Fractal Brunches</span> are the easiest entry point.</p>
         <div class="slide-number">13 / 14</div>
     </div>
 
     <!-- Slide 14: Takeaways -->
     <div class="slide center">
-        <h2>What You Walk Away With</h2>
+        <h2>TL;DR For After Brunch</h2>
         <div class="accent-bar" style="margin: 0 auto 40px;"></div>
 
         <div class="card" style="max-width: 700px; margin: 0 auto 20px;">
-            <h3>1. An Avenue to Join a Different Life</h3>
-            <p style="font-size: 1.2rem;">Not theoretical. Being built now. Entry points exist.</p>
+            <h3>1. This is actually happening</h3>
+            <p style="font-size: 1.2rem;">Not a daydream. Not theoretical. People are building it. You can help or join.</p>
         </div>
 
         <div class="card" style="max-width: 700px; margin: 0 auto;">
-            <h3>2. A Reconceptualization of Crypto</h3>
-            <p style="font-size: 1.2rem;">Coordination infrastructure for post-capitalist community.<br>Not speculation. Not exit. <span class="green">Synthesis.</span></p>
+            <h3>2. Crypto can be... infrastructure?</h3>
+            <p style="font-size: 1.2rem;">Not speculation. Coordination tools for building communities outside the normal system. <span class="green">Wild, I know.</span></p>
         </div>
 
-        <p class="tagline">"The freedom beyond freedom is choosing your constraints."</p>
+        <p style="margin-top: 50px; font-size: 1.2rem;">
+            <span class="highlight">akiyacollective.org</span> | <span class="highlight">fractalnyc.com</span>
+        </p>
 
-        <p style="margin-top: 40px; color: #58a6ff;">[Website] · [Socials] · [Contact]</p>
+        <p class="tagline">"Too broke, dumb, and tired for all this? Same. That's why we're building something else."</p>
+
         <div class="slide-number">14 / 14</div>
     </div>
 
-    <div class="nav-hint">← → arrow keys to navigate | click left/right to advance</div>
+    <div class="nav-hint">tap or arrow keys to navigate ~</div>
 
     <script>
         let currentSlide = 0;
