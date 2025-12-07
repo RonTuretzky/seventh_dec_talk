@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post-Capitalism is a Vending Machine</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f5f0e8;
+            color: #1a1a1a;
+            overflow: hidden;
+        }
+        .slide {
+            width: 100vw;
+            height: 100vh;
+            display: none;
+            padding: 60px 100px;
+            position: relative;
+            background: #f5f0e8;
+        }
+        .slide.active {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .slide-number {
+            position: absolute;
+            bottom: 30px;
+            right: 40px;
+            font-size: 13px;
+            color: #999;
+        }
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 600;
+            margin-bottom: 25px;
+            color: #1a1a1a;
+            line-height: 1.15;
+        }
+        h2 {
+            font-size: 2.4rem;
+            font-weight: 600;
+            margin-bottom: 35px;
+            color: #1a1a1a;
+        }
+        p {
+            font-size: 1.5rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            color: #444;
+        }
+        .pop { color: #e63946; }
+        .calm { color: #2a9d8f; }
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        li {
+            font-size: 1.4rem;
+            margin-bottom: 22px;
+            padding-left: 35px;
+            position: relative;
+            color: #444;
+            line-height: 1.5;
+        }
+        li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #e63946;
+        }
+        .center {
+            text-align: center;
+            align-items: center;
+        }
+        .vending-machine {
+            width: 200px;
+            height: 300px;
+            background: linear-gradient(180deg, #e63946 0%, #c1121f 100%);
+            border-radius: 15px;
+            margin: 30px auto;
+            position: relative;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+        .vending-machine .screen {
+            width: 160px;
+            height: 100px;
+            background: #1a1a1a;
+            margin: 20px auto 0;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #00ff00;
+            font-family: monospace;
+            font-size: 0.9rem;
+        }
+        .vending-machine .slot {
+            width: 120px;
+            height: 40px;
+            background: #1a1a1a;
+            margin: 20px auto;
+            border-radius: 5px;
+        }
+        .vending-machine .dispenser {
+            width: 140px;
+            height: 60px;
+            background: #1a1a1a;
+            margin: 0 auto;
+            border-radius: 0 0 10px 10px;
+        }
+        .math-block {
+            background: #fff;
+            padding: 35px;
+            border-radius: 12px;
+            margin: 30px 0;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+            font-family: 'Courier New', monospace;
+        }
+        .math-block .line {
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+            color: #666;
+        }
+        .math-block .result {
+            font-size: 1.4rem;
+            color: #1a1a1a;
+            border-top: 2px solid #eee;
+            padding-top: 15px;
+            margin-top: 15px;
+        }
+        .comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin: 30px 0;
+        }
+        .comparison-side {
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+        }
+        .comparison-side h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: #1a1a1a;
+        }
+        .comparison-side.bad h3 { color: #999; }
+        .comparison-side.good h3 { color: #2a9d8f; }
+        .scale-diagram {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            margin: 50px 0;
+        }
+        .scale-level {
+            text-align: center;
+        }
+        .scale-level .icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+        .scale-level .label {
+            font-size: 1rem;
+            color: #666;
+        }
+        .scale-arrow {
+            font-size: 2rem;
+            color: #ccc;
+        }
+        .quote-block {
+            background: #fff;
+            border-left: 5px solid #e63946;
+            padding: 30px;
+            margin: 40px 0;
+            font-style: italic;
+            font-size: 1.4rem;
+            color: #666;
+        }
+        .nav-hint {
+            position: fixed;
+            bottom: 30px;
+            left: 40px;
+            font-size: 12px;
+            color: #bbb;
+        }
+        .tag {
+            display: inline-block;
+            background: #e63946;
+            color: #fff;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+        .tag.alt { background: #2a9d8f; }
+    </style>
+</head>
+<body>
+    <!-- Slide 1: Title -->
+    <div class="slide active center">
+        <div class="vending-machine">
+            <div class="screen">WORKER OWNED</div>
+            <div class="slot"></div>
+            <div class="dispenser"></div>
+        </div>
+        <h1>Post-Capitalism is a Vending Machine</h1>
+        <p style="color: #888;">or: how I learned to stop worrying and own the means of snack distribution</p>
+        <div class="slide-number">1 / 12</div>
+    </div>
+
+    <!-- Slide 2: The Story -->
+    <div class="slide">
+        <h2>Let me tell you about a vending machine</h2>
+        <p>Japan has more vending machines per capita than anywhere on Earth. 5 million of them. $60 billion industry.</p>
+        <p>They're everywhere. They work perfectly. They're also... kind of a metaphor?</p>
+        <p style="margin-top: 40px;">Here's the thing: <span class="pop">who owns them?</span></p>
+        <p>Corporations. Obviously. The workers who stock them, maintain them, collect the money? They get wages. The machine makes someone else rich.</p>
+        <p class="calm" style="margin-top: 30px;">What if it didn't have to be that way?</p>
+        <div class="slide-number">2 / 12</div>
+    </div>
+
+    <!-- Slide 3: The Mechanism -->
+    <div class="slide">
+        <h2>Mutual Vend: the mechanism</h2>
+        <div class="math-block">
+            <div class="line">Worker deposits collateral = 2x machine cost</div>
+            <div class="line">Revenue splits automatically via smart contract</div>
+            <div class="line">No payment processor (saves ~50% of margins)</div>
+            <div class="line">Machine pays for itself in [X] months</div>
+            <div class="result">Then: machine replicates. Network grows.</div>
+        </div>
+        <p>No boss. No shareholders. No bank taking a cut. Just workers owning a thing that makes money.</p>
+        <p class="pop">This isn't a thought experiment. This is a business model.</p>
+        <div class="slide-number">3 / 12</div>
+    </div>
+
+    <!-- Slide 4: Why It Works -->
+    <div class="slide">
+        <h2>Why this works (when other things don't)</h2>
+        <p>Three conditions for post-capitalist business:</p>
+        <ul style="margin-top: 30px;">
+            <li><span class="calm">Better for workers</span> than the capitalist alternative (you own it)</li>
+            <li><span class="calm">Viable without subsidies</span> (it actually makes money)</li>
+            <li><span class="calm">Collectively owned</span> without needing a state to enforce it (smart contracts)</li>
+        </ul>
+        <p style="margin-top: 40px;">Most "alternatives" fail one of these. Co-ops need legal structures. Communes need subsidies. Crypto projects need... crypto people.</p>
+        <p>This one threads the needle.</p>
+        <div class="slide-number">4 / 12</div>
+    </div>
+
+    <!-- Slide 5: Now Scale It -->
+    <div class="slide">
+        <h2>Now scale it</h2>
+        <div class="scale-diagram">
+            <div class="scale-level">
+                <div class="icon">🥤</div>
+                <div class="label">Vending machine</div>
+            </div>
+            <div class="scale-arrow">→</div>
+            <div class="scale-level">
+                <div class="icon">🏪</div>
+                <div class="label">Small business</div>
+            </div>
+            <div class="scale-arrow">→</div>
+            <div class="scale-level">
+                <div class="icon">🏭</div>
+                <div class="label">Workshop</div>
+            </div>
+            <div class="scale-arrow">→</div>
+            <div class="scale-level">
+                <div class="icon">🌾</div>
+                <div class="label">Farm</div>
+            </div>
+            <div class="scale-arrow">→</div>
+            <div class="scale-level">
+                <div class="icon">🏘️</div>
+                <div class="label">Commune</div>
+            </div>
+        </div>
+        <p>Same mechanism. Workers deposit collateral. Revenue splits via smart contract. Asset pays for itself. Asset replicates.</p>
+        <p>The only difference is scale.</p>
+        <div class="slide-number">5 / 12</div>
+    </div>
+
+    <!-- Slide 6: The Industrial Commune -->
+    <div class="slide">
+        <h2>The industrial commune</h2>
+        <p>Not a hippie commune. Not a retreat. A <span class="pop">productive unit</span>.</p>
+        <div class="comparison">
+            <div class="comparison-side">
+                <h3>What it makes:</h3>
+                <ul>
+                    <li>Food (agriculture)</li>
+                    <li>Things (fabrication, workshops)</li>
+                    <li>Energy (solar, small-scale)</li>
+                    <li>Services (for the network and beyond)</li>
+                </ul>
+            </div>
+            <div class="comparison-side">
+                <h3>How it's owned:</h3>
+                <ul>
+                    <li>Members deposit collateral</li>
+                    <li>Revenue/resources distributed by smart contract</li>
+                    <li>No external shareholders</li>
+                    <li>No state enforcement needed</li>
+                </ul>
+            </div>
+        </div>
+        <p>It's a vending machine, but bigger. And you live in it.</p>
+        <div class="slide-number">6 / 12</div>
+    </div>
+
+    <!-- Slide 7: The Network -->
+    <div class="slide">
+        <h2>One commune is fragile. A network isn't.</h2>
+        <p>What happens when you connect multiple industrial communes?</p>
+        <ul style="margin-top: 30px;">
+            <li><span class="calm">Trade</span> — what you make, they need. What they make, you need.</li>
+            <li><span class="calm">Insurance</span> — when one has a bad year, the network absorbs it.</li>
+            <li><span class="calm">Mobility</span> — when your region gets bad, you can move to another node.</li>
+            <li><span class="calm">Coordination</span> — production planning across the network via crypto.</li>
+        </ul>
+        <p style="margin-top: 40px;">This isn't just sharing. It's <span class="pop">a planned economy</span> that no state controls.</p>
+        <div class="slide-number">7 / 12</div>
+    </div>
+
+    <!-- Slide 8: The Insurance -->
+    <div class="slide">
+        <h2>The insurance mechanism</h2>
+        <p>Mutual peer insurance. But for your whole life, not just your car.</p>
+        <div class="math-block">
+            <div class="line">Communes pool resources into insurance fund</div>
+            <div class="line">Prediction market (run by communes) tracks regional risks</div>
+            <div class="line">Human rights index drops? Climate disaster? Political instability?</div>
+            <div class="result">Insurance kicks in. You relocate to another commune in the network.</div>
+        </div>
+        <p>The payout isn't money. It's <span class="calm">a place to go</span>.</p>
+        <div class="slide-number">8 / 12</div>
+    </div>
+
+    <!-- Slide 9: Why Japan -->
+    <div class="slide">
+        <h2>Why start in rural Japan?</h2>
+        <p>8 million empty houses. Villages paying people to move there. Land cheaper than a used car.</p>
+        <p style="margin-top: 30px;">But also:</p>
+        <ul>
+            <li>Labor shortage → visa pathways for agricultural cooperatives</li>
+            <li>High quality of life, low cost of living</li>
+            <li>Not strategically important (empires don't care)</li>
+            <li>Strong infrastructure, weak control</li>
+        </ul>
+        <p style="margin-top: 30px;">It's a <span class="pop">gap</span>. A place where you can build something without anyone stopping you.</p>
+        <div class="slide-number">9 / 12</div>
+    </div>
+
+    <!-- Slide 10: MVP -->
+    <div class="slide">
+        <h2>Minimum viable post-capitalism</h2>
+        <p>What do you actually need?</p>
+        <div class="quote-block">
+            A few industrial communes, making real things, coordinating their economies with crypto, insuring each other against collapse.
+        </div>
+        <p>That's it. That's the skeleton of an economy that doesn't need capitalism to function.</p>
+        <p style="margin-top: 30px;">
+            <span class="tag">Production</span>
+            <span class="tag alt">Coordination</span>
+            <span class="tag">Insurance</span>
+            <span class="tag alt">Mobility</span>
+        </p>
+        <p style="margin-top: 30px;">Not utopia. Just: a thing that works differently.</p>
+        <div class="slide-number">10 / 12</div>
+    </div>
+
+    <!-- Slide 11: The Question -->
+    <div class="slide center">
+        <h2>So here's my question</h2>
+        <p style="font-size: 2rem; margin-top: 50px;">Why don't you own anything?</p>
+        <p style="margin-top: 40px;">Not equity in someone else's company.<br>Not a mortgaged house in a place you can't afford.<br>Not tokens on an exchange.</p>
+        <p style="margin-top: 40px;"><span class="calm">Actually own.</span> Something that makes stuff. With people you trust. In a place that makes sense.</p>
+        <p class="pop" style="margin-top: 50px;">What are you waiting for?</p>
+        <div class="slide-number">11 / 12</div>
+    </div>
+
+    <!-- Slide 12: End -->
+    <div class="slide center">
+        <div class="vending-machine" style="transform: scale(0.7);">
+            <div class="screen">JOIN US</div>
+            <div class="slot"></div>
+            <div class="dispenser"></div>
+        </div>
+        <h2>It starts with a vending machine.</h2>
+        <p>It ends with an economy.</p>
+        <p style="margin-top: 40px; color: #888;">The mechanism is the same at every scale. Ownership. Smart contracts. Replication.</p>
+        <div class="slide-number">12 / 12</div>
+    </div>
+
+    <div class="nav-hint">← → to navigate</div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        function showSlide(n) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (n + slides.length) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') showSlide(currentSlide + 1);
+            else if (e.key === 'ArrowLeft') showSlide(currentSlide - 1);
+        });
+        document.addEventListener('click', (e) => {
+            if (e.clientX > window.innerWidth / 2) showSlide(currentSlide + 1);
+            else showSlide(currentSlide - 1);
+        });
+    </script>
+</body>
+</html>
