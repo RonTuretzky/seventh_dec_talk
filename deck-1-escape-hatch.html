@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rural Collectivism in Japan</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: #faf7f2;
+            color: #3d3d3d;
+            overflow: hidden;
+        }
+
+        .slide {
+            width: 100vw;
+            height: 100vh;
+            display: none;
+            padding: 60px 80px;
+            position: relative;
+            background: linear-gradient(135deg, #faf7f2 0%, #fff5e6 100%);
+        }
+
+        .slide.active {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .slide-number {
+            position: absolute;
+            bottom: 30px;
+            right: 40px;
+            font-size: 14px;
+            color: #c4a77d;
+        }
+
+        h1 {
+            font-size: 3.8rem;
+            font-weight: 400;
+            margin-bottom: 20px;
+            color: #2d4a3e;
+            line-height: 1.2;
+        }
+
+        h2 {
+            font-size: 2.8rem;
+            font-weight: 400;
+            margin-bottom: 40px;
+            color: #2d4a3e;
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            color: #8b7355;
+            margin-top: 20px;
+            font-style: italic;
+        }
+
+        p {
+            font-size: 1.6rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            color: #5a5a5a;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        li {
+            font-size: 1.4rem;
+            margin-bottom: 22px;
+            padding-left: 35px;
+            position: relative;
+            color: #5a5a5a;
+            line-height: 1.5;
+        }
+
+        li::before {
+            content: "~";
+            position: absolute;
+            left: 0;
+            color: #e07b53;
+            font-size: 1.6rem;
+        }
+
+        .highlight {
+            color: #e07b53;
+            font-weight: 500;
+        }
+
+        .green {
+            color: #4a8a4a;
+            font-weight: 500;
+        }
+
+        .quote {
+            font-size: 1.7rem;
+            font-style: italic;
+            color: #8b7355;
+            border-left: 4px solid #e07b53;
+            padding-left: 30px;
+            margin: 40px 0;
+        }
+
+        table {
+            width: 100%;
+            margin: 30px 0;
+            border-collapse: collapse;
+            font-size: 1.15rem;
+        }
+
+        th, td {
+            padding: 16px 22px;
+            text-align: left;
+            border-bottom: 1px solid #e8dfd3;
+        }
+
+        th {
+            color: #2d4a3e;
+            font-weight: 500;
+            background: #fff5e6;
+        }
+
+        td {
+            color: #5a5a5a;
+        }
+
+        tr:hover td {
+            background: #fef9f3;
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            margin-top: 30px;
+        }
+
+        .center {
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .center h1, .center h2 {
+            text-align: center;
+        }
+
+        .big-text {
+            font-size: 2.2rem;
+            color: #2d4a3e;
+            line-height: 1.6;
+        }
+
+        .card {
+            background: #fff;
+            border: 2px solid #e8dfd3;
+            border-radius: 15px;
+            padding: 30px;
+        }
+
+        .card h3 {
+            color: #2d4a3e;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        .card ul li {
+            font-size: 1.15rem;
+            margin-bottom: 12px;
+        }
+
+        .nav-hint {
+            position: fixed;
+            bottom: 30px;
+            left: 40px;
+            font-size: 12px;
+            color: #c4a77d;
+        }
+
+        .accent-line {
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #e07b53, #f4a574);
+            margin-bottom: 30px;
+            border-radius: 2px;
+        }
+
+        .sources {
+            font-size: 0.95rem;
+            color: #999;
+            margin-top: 25px;
+            font-style: italic;
+        }
+
+        .sources a {
+            color: #8b7355;
+            text-decoration: none;
+        }
+
+        .sources a:hover {
+            color: #e07b53;
+        }
+
+        .small-text {
+            font-size: 1.2rem;
+        }
+
+        .observation {
+            font-size: 1.3rem;
+            color: #5a5a5a;
+            line-height: 1.7;
+        }
+
+        .pipeline {
+            font-family: 'Courier New', monospace;
+            font-size: 1.15rem;
+            background: #fff;
+            border: 1px solid #e8dfd3;
+            padding: 35px;
+            border-radius: 12px;
+            margin: 25px 0;
+            line-height: 1.9;
+            color: #2d4a3e;
+            white-space: pre;
+        }
+
+        .slide-with-bg {
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .slide-with-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(250, 247, 242, 0.92) 0%, rgba(255, 245, 230, 0.88) 100%);
+        }
+
+        .slide-with-bg > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .image-row {
+            display: flex;
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .image-row img {
+            flex: 1;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 12px;
+            border: 2px solid #e8dfd3;
+        }
+
+        .side-image {
+            position: absolute;
+            right: 60px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 350px;
+            height: 450px;
+            object-fit: cover;
+            border-radius: 15px;
+            border: 3px solid #e8dfd3;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        .slide-with-image {
+            padding-right: 450px;
+        }
+
+        .sketch-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Slide 1: Title -->
+    <div class="slide active center slide-with-bg" style="background-image: url('https://8455400.fs1.hubspotusercontent-na1.net/hubfs/8455400/komoro-around-town-1200px.jpg');">
+        <p style="font-size: 4rem; margin-bottom: 20px;">~</p>
+        <h1>Rural Collectivism in Japan</h1>
+        <p class="subtitle">Notes on collective living infrastructure</p>
+        <div class="slide-number">1 / 20</div>
+    </div>
+
+    <!-- Slide 2: What's Already Happening -->
+    <div class="slide">
+        <h2>What's Already Happening</h2>
+        <div class="accent-line"></div>
+        <p style="font-size: 1.3rem; margin-bottom: 20px;">Multiple organizations are building collective living infrastructure in rural Japan right now:</p>
+        <div class="two-column" style="gap: 40px;">
+            <div class="card">
+                <h3 style="color: #e07b53;">Akiya Collective</h3>
+                <p style="font-size: 1.1rem; margin-bottom: 10px;">Nonprofit in Nagano Prefecture. Renovating abandoned houses into creative residencies and makerspaces.</p>
+                <ul style="font-size: 1rem;">
+                    <li>First property: Komoro Town (2024)</li>
+                    <li>100+ volunteers (carpenters, musicians, founders)</li>
+                    <li>Open-source playbooks, contribute-to-stay model</li>
+                </ul>
+                <p style="font-size: 0.95rem; color: #8b7355; margin-top: 10px;">akiyacollective.org</p>
+            </div>
+            <div class="card">
+                <h3 style="color: #e07b53;">Zu City Japan</h3>
+                <p style="font-size: 1.1rem; margin-bottom: 10px;">Residential community 90 min from Tokyo in the Japanese Alps. Combining deep work with rural living.</p>
+                <ul style="font-size: 1rem;">
+                    <li>310+ members, 2 homes owned</li>
+                    <li>Coliving ($1.5K/mo) → Ownership ($25K avg)</li>
+                    <li>Co-working, community cars, shared services</li>
+                </ul>
+                <p style="font-size: 0.95rem; color: #8b7355; margin-top: 10px;">zucity.org</p>
+            </div>
+        </div>
+        <div class="image-row" style="margin-top: 20px; margin-bottom: 0;">
+            <img src="https://www.go-nagano.net/hs-fs/hubfs/blog_assets/komoro_tours/komoro-around-town-small.jpg" alt="Komoro town streets">
+            <img src="https://www.go-nagano.net/hs-fs/hubfs/blog_assets/komoro_tours/095A7452-%E5%BC%B7%E5%8C%96-NR-small.jpg" alt="Komoro traditional street">
+            <img src="https://cdn.prod.website-files.com/63c6d6661893c4097bd744f6/67983ffea15a3dfa15483dfd_akiya%20sketch%20south%20elevation.jpeg" alt="Akiya Collective makerspace sketch">
+        </div>
+        <div class="slide-number">2 / 20</div>
+    </div>
+
+    <!-- Slide 3: Lived Experience -->
+    <div class="slide">
+        <h2>Lived Experience</h2>
+        <div class="accent-line"></div>
+        <p style="font-size: 1.4rem;">A few years in a <span class="highlight">desert commune</span>. Art. Philosophy. Meditation. Shared labor. Internal economy without money.</p>
+        <div class="two-column" style="margin-top: 25px; gap: 40px;">
+            <div class="card">
+                <h3 style="color: #4a8a4a;">What Worked</h3>
+                <ul style="font-size: 1.1rem;">
+                    <li>Actually belonging somewhere</li>
+                    <li>Work that meant something beyond a paycheck</li>
+                    <li>Children raised by the whole community</li>
+                    <li>Meaning from contribution, not consumption</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3 style="color: #c45a3a;">What Didn't</h3>
+                <ul style="font-size: 1.1rem;">
+                    <li>No coordination technology (still using paper)</li>
+                    <li>Cut off from the outside world</li>
+                    <li>No pathway to replicate elsewhere</li>
+                    <li>Governance that didn't scale</li>
+                </ul>
+            </div>
+        </div>
+        <p class="quote" style="margin-top: 25px;">The question: can that freedom be combined with modern coordination tools?</p>
+        <div class="slide-number">3 / 20</div>
+    </div>
+
+    <!-- Slide 4: Why This Exists -->
+    <div class="slide">
+        <h2>Why This Exists</h2>
+        <div class="accent-line"></div>
+        <p class="big-text">There's a gap between the life being lived and the life that would feel like one's own.</p>
+        <p style="margin-top: 30px;">This recognition isn't new. Every generation that built intentional communities started here:</p>
+        <p class="quote">The conditions for the life you want do not exist. They have to be constructed.</p>
+        <p style="margin-top: 30px; color: #5a5a5a;">The question is whether the feeling stays a feeling, or becomes a project.</p>
+        <div class="slide-number">4 / 20</div>
+    </div>
+
+    <!-- Slide 5: The Ownership Question -->
+    <div class="slide center">
+        <h2>The Ownership Question</h2>
+        <div class="accent-line" style="margin: 0 auto 30px;"></div>
+        <p class="big-text">Why don't most people <span class="highlight">own</span> anything?</p>
+        <p style="margin-top: 40px; font-size: 1.3rem; color: #5a5a5a;">
+            Not equity in a company that might IPO.<br>
+            Not a house with a 30-year mortgage.<br>
+            Not tokens in an exchange.
+        </p>
+        <p class="quote" style="margin-top: 40px; text-align: center; border-left: none; padding-left: 0;">
+            Actually own. With people you trust. Something that produces.
+        </p>
+        <div class="slide-number">5 / 20</div>
+    </div>
+
+    <!-- Slide 6: The Shifting Ground -->
+    <div class="slide">
+        <h2>The Shifting Ground</h2>
+        <div class="accent-line"></div>
+        <p class="small-text" style="margin-bottom: 25px;">The structures assumed to be stable are visibly rearranging:</p>
+        <table>
+            <tr>
+                <th>Domain</th>
+                <th>What's Happening</th>
+                <th>Data Point</th>
+            </tr>
+            <tr>
+                <td>Labor</td>
+                <td>Cognitive work automation accelerating</td>
+                <td><span class="highlight">85M jobs displaced by 2025</span> (WEF)</td>
+            </tr>
+            <tr>
+                <td>Class Structure</td>
+                <td>Middle-income occupations hollowing</td>
+                <td>High-skill & low-skill growing; middle vanishing</td>
+            </tr>
+            <tr>
+                <td>Entry-Level</td>
+                <td>Young knowledge workers losing footing</td>
+                <td><span class="highlight">+3pp unemployment</span> in tech-exposed roles</td>
+            </tr>
+            <tr>
+                <td>Capital Requirements</td>
+                <td>New roles require advanced credentials</td>
+                <td>77% of new AI positions need master's degrees</td>
+            </tr>
+        </table>
+        <p class="sources">Sources: <a href="https://www.goldmansachs.com/insights/articles/how-will-ai-affect-the-global-workforce" target="_blank">Goldman Sachs</a>, <a href="https://www.stlouisfed.org/on-the-economy/2025/aug/is-ai-contributing-unemployment-evidence-occupational-variation" target="_blank">St. Louis Fed</a>, <a href="https://sqmagazine.co.uk/ai-job-loss-statistics/" target="_blank">SQ Magazine</a></p>
+        <div class="slide-number">6 / 20</div>
+    </div>
+
+    <!-- Slide 6: Land Economics -->
+    <div class="slide">
+        <h2>Land Economics</h2>
+        <div class="accent-line"></div>
+        <div class="image-row" style="margin-top: 0; margin-bottom: 20px;">
+            <img src="https://www.go-nagano.net/hs-fs/hubfs/blog_assets/komoro_tours/17359_ext_01_0-small.jpg" alt="Komoro castle area">
+            <img src="https://www.go-nagano.net/hs-fs/hubfs/blog_assets/komoro_tours/095A7515-small.jpg" alt="Komoro traditional buildings">
+            <img src="https://www.go-nagano.net/hs-fs/hubfs/blog_assets/komoro_tours/nunobiki-kannon-hall-small.jpg" alt="Nunobiki Kannon temple">
+        </div>
+        <table style="font-size: 1.05rem;">
+            <tr>
+                <th>Location</th>
+                <th>Entry Cost</th>
+                <th>Monthly Living</th>
+                <th>Visa Path</th>
+                <th>Context</th>
+            </tr>
+            <tr>
+                <td>Japan (Rural Akiya)</td>
+                <td class="green">$0 – $30K</td>
+                <td class="green">$800 – $1,200</td>
+                <td>Agricultural/labor shortage</td>
+                <td>9M vacant homes (14%)</td>
+            </tr>
+            <tr>
+                <td>Portugal</td>
+                <td>$150K+</td>
+                <td>$1,500 – $2,000</td>
+                <td>Golden Visa ended (Oct 2023)</td>
+                <td>Requires €500K fund</td>
+            </tr>
+            <tr>
+                <td>US (Rural avg)</td>
+                <td>$100K+</td>
+                <td>$2,000+</td>
+                <td>N/A (domestic)</td>
+                <td>$4,350/acre (2025)</td>
+            </tr>
+        </table>
+        <p class="sources">Sources: <a href="https://akiyainfo.com/complete-beginners-guide-to-buying-an-akiya-in-japan-2024-2025/" target="_blank">Akiya Info</a>, <a href="https://getgoldenvisa.com/portugal-golden-visa-program" target="_blank">Get Golden Visa</a>, <a href="https://www.ers.usda.gov/topics/farm-economy/land-use-land-value-tenure/farmland-value" target="_blank">USDA ERS</a></p>
+        <div class="slide-number">7 / 20</div>
+    </div>
+
+    <!-- Slide 8: The Gap in Empires -->
+    <div class="slide">
+        <h2>The Gap in Empires</h2>
+        <div class="accent-line"></div>
+        <p class="observation">Empires expand and contract. They can't control everything all the time.</p>
+        <p style="margin-top: 25px;">There are always <span class="highlight">gaps</span>—places that aren't worth occupying, places that get forgotten, places in transition.</p>
+        <p style="margin-top: 25px;">Rural Japan is one of those gaps right now:</p>
+        <ul style="margin-top: 20px;">
+            <li>Depopulating villages with infrastructure already built</li>
+            <li>Aging owners looking for successors, not profit</li>
+            <li>Not strategically important to anyone</li>
+        </ul>
+        <p class="quote" style="margin-top: 30px;">You don't contest power by building a bigger army. You find the places it doesn't care about, and you build there.</p>
+        <div class="slide-number">8 / 20</div>
+    </div>
+
+    <!-- Slide 9: Two Models -->
+    <div class="slide">
+        <h2>Two Models</h2>
+        <div class="accent-line"></div>
+        <p class="observation" style="margin-bottom: 25px;">Two distinct approaches to collective organization have emerged:</p>
+        <div class="two-column">
+            <div class="card">
+                <h3>Network State Model</h3>
+                <ul>
+                    <li>Exit-based governance — fork if you disagree</li>
+                    <li>Regulatory arbitrage; special economic zone logic</li>
+                    <li>Founder-centric, shareholder-driven structures</li>
+                    <li>Wealth gates at the door ($10K+ to participate)</li>
+                    <li>Building parallel to existing communities</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Coordination Model</h3>
+                <ul>
+                    <li>Commons-based governance — work through disagreement</li>
+                    <li>Shared ownership of land and equipment</li>
+                    <li>Democratic decision-making, no founder-kings</li>
+                    <li>Open to contribution, not just capital</li>
+                    <li>Building with existing villages, not colonizing</li>
+                </ul>
+            </div>
+        </div>
+        <p style="margin-top: 20px; font-size: 1.2rem;"><span class="highlight">Akiya Collective</span> and <span class="highlight">Zu City Japan</span> operate in the coordination framework.</p>
+        <p class="quote" style="margin-top: 15px; font-size: 1.15rem;">One model scales through capital. The other scales through contribution.</p>
+        <p class="sources">See: <a href="https://www.cip.org/blog/network-societies" target="_blank">Collective Intelligence Project</a>, <a href="https://wiki.p2pfoundation.net/Primavera_De_Filippi_on_the_Critique_of_the_Network_State_Concept_of_Balaji_Srivanasan" target="_blank">De Filippi on CoordiNATIONS</a></p>
+        <div class="slide-number">9 / 20</div>
+    </div>
+
+    <!-- Slide 10: Shared Resources -->
+    <div class="slide">
+        <h2>Shared Resources</h2>
+        <div class="accent-line"></div>
+        <p class="observation">What does coordination look like in practice?</p>
+        <p style="margin-top: 25px;"><span class="highlight">A group of people owning a farm and some workshops together.</span></p>
+        <ul style="margin-top: 30px;">
+            <li>Shared equipment — tractors, fabrication tools, solar arrays</li>
+            <li>Shared labor — specialization without isolation</li>
+            <li>Shared risk — when one person has a bad year, everyone eats</li>
+        </ul>
+        <p class="quote" style="margin-top: 30px;">Revolutionary? Or just how humans organized for most of history?</p>
+        <div class="slide-number">10 / 20</div>
+    </div>
+
+    <!-- Slide 11: Coordination Infrastructure -->
+    <div class="slide">
+        <h2>Coordination Infrastructure</h2>
+        <div class="accent-line"></div>
+        <p class="observation" style="margin-bottom: 25px;">Cryptography as coordination tool rather than speculation vehicle:</p>
+        <div class="two-column">
+            <div class="card">
+                <h3>Privacy & Sovereignty</h3>
+                <ul>
+                    <li>Community data stays with the community</li>
+                    <li>Collective ownership that's verifiable</li>
+                    <li>Decision-making that can't be censored</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Explicit Principles</h3>
+                <ul>
+                    <li>Secular — spirituality without hierarchy</li>
+                    <li>Written norms, not implied expectations</li>
+                    <li>Open source — fork it if it doesn't work</li>
+                </ul>
+            </div>
+        </div>
+        <p class="quote" style="margin-top: 30px;">Solarpunk aspirations with lunarpunk operational security.</p>
+        <div class="slide-number">11 / 20</div>
+    </div>
+
+    <!-- Slide 12: Mutual Insurance -->
+    <div class="slide">
+        <h2>Mutual Insurance</h2>
+        <div class="accent-line"></div>
+        <p class="observation">What if the commune had insurance? Not from a corporation. From each other.</p>
+        <div class="card" style="margin-top: 30px; max-width: 800px;">
+            <h3 style="color: #2d4a3e; margin-bottom: 20px;">The Mechanism</h3>
+            <ul>
+                <li>Multiple communes pool resources into a shared fund</li>
+                <li>Prediction markets (run by the communes) track regional risks</li>
+                <li>Human rights declining? Natural disaster? The insurance kicks in.</li>
+                <li>Relocation pathway to another commune in the network</li>
+            </ul>
+        </div>
+        <p class="quote" style="margin-top: 30px;">Not hedging a portfolio. Hedging a life.</p>
+        <div class="slide-number">12 / 20</div>
+    </div>
+
+    <!-- Slide 13: Insurance as Place -->
+    <div class="slide">
+        <h2>Insurance as Place</h2>
+        <div class="accent-line"></div>
+        <p class="observation">Traditional insurance gives cash. But cash doesn't help if there's nowhere to go.</p>
+        <p style="margin-top: 25px;">The payout isn't money—it's a <span class="highlight">place to live and work</span>. Real estate and community hold value in collapse scenarios. A check doesn't.</p>
+        <div class="card" style="margin-top: 30px; max-width: 700px;">
+            <h3 style="color: #2d4a3e; margin-bottom: 15px;">Not New</h3>
+            <ul>
+                <li>Mutual insurance societies existed for centuries before corporations ate them</li>
+                <li>Prediction markets consistently outperform expert forecasts</li>
+                <li>Cryptography makes cross-border pooling and coordination possible</li>
+            </ul>
+        </div>
+        <p class="quote" style="margin-top: 25px;">Old ideas. New infrastructure.</p>
+        <div class="slide-number">13 / 20</div>
+    </div>
+
+    <!-- Slide 14: Risk Signals -->
+    <div class="slide">
+        <h2>Risk Signals</h2>
+        <div class="accent-line"></div>
+        <p class="observation">Who decides when things are bad enough to trigger coverage?</p>
+        <div class="two-column" style="margin-top: 25px;">
+            <div class="card">
+                <h3 style="color: #2d4a3e;">Trigger Conditions</h3>
+                <ul>
+                    <li>Human rights index drops below threshold</li>
+                    <li>Region becomes unlivable (climate, war, economy)</li>
+                    <li>Communes vote on what counts—not a corporation, not a government</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3 style="color: #2d4a3e;">Prediction Market</h3>
+                <ul>
+                    <li>Members stake on regional stability forecasts</li>
+                    <li>Higher risk = higher premium</li>
+                    <li>Creates incentive to actually pay attention</li>
+                </ul>
+            </div>
+        </div>
+        <div class="slide-number">14 / 20</div>
+    </div>
+
+    <!-- Slide 15: Distributed Hedging -->
+    <div class="slide">
+        <h2>Distributed Hedging</h2>
+        <div class="accent-line"></div>
+        <p class="observation">One commune is vulnerable. A network is resilient.</p>
+        <div class="two-column" style="margin-top: 30px; gap: 30px;">
+            <div class="card" style="text-align: center;">
+                <p style="font-size: 1.3rem; margin-bottom: 10px;"><span class="highlight">Commune A</span></p>
+                <p style="font-size: 1.1rem; color: #8b7355;">Rural Japan</p>
+            </div>
+            <div class="card" style="text-align: center;">
+                <p style="font-size: 1.3rem; margin-bottom: 10px;"><span class="highlight">Commune B</span></p>
+                <p style="font-size: 1.1rem; color: #8b7355;">Portugal hills</p>
+            </div>
+        </div>
+        <div class="two-column" style="margin-top: 15px; gap: 30px;">
+            <div class="card" style="text-align: center;">
+                <p style="font-size: 1.3rem; margin-bottom: 10px;"><span class="highlight">Commune C</span></p>
+                <p style="font-size: 1.1rem; color: #8b7355;">Appalachian US</p>
+            </div>
+            <div class="card" style="text-align: center;">
+                <p style="font-size: 1.3rem; margin-bottom: 10px;"><span class="highlight">Commune D</span></p>
+                <p style="font-size: 1.1rem; color: #8b7355;">Argentina pampa</p>
+            </div>
+        </div>
+        <p class="quote" style="margin-top: 25px;">Japan gets weird → go to Portugal. Portugal gets weird → someone comes to Japan.</p>
+        <div class="slide-number">15 / 20</div>
+    </div>
+
+    <!-- Slide 16: A Gradient -->
+    <div class="slide">
+        <h2>A Gradient</h2>
+        <div class="accent-line"></div>
+        <p class="observation" style="margin-bottom: 15px;">Collective living exists on a spectrum. Each level is its own stable configuration:</p>
+        <div class="mermaid" style="background: #fff; border-radius: 12px; padding: 20px; border: 1px solid #e8dfd3;">
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#fff5e6', 'primaryTextColor': '#2d4a3e', 'primaryBorderColor': '#e07b53', 'lineColor': '#c4a77d', 'secondaryColor': '#faf7f2', 'tertiaryColor': '#fff', 'fontFamily': 'Georgia' }}}%%
+flowchart TB
+    A["🎪 Gatherings & Events"] --> B["🏠 Seasonal Residencies"]
+    B --> C["🤝 Urban Mutual Aid Networks"]
+    C --> D["🌾 Rural Communes"]
+    D --> E["🏭 Industrial Communes"]
+    E --> F["🌐 Networked Industrial Communes"]
+
+    subgraph entry [" "]
+        A
+        B
+    end
+
+    subgraph mid [" "]
+        C
+        D
+    end
+
+    subgraph full [" "]
+        E
+        F
+    end
+
+    style A fill:#fff5e6,stroke:#e07b53,stroke-width:2px
+    style B fill:#fff5e6,stroke:#e07b53,stroke-width:2px
+    style C fill:#fff5e6,stroke:#c4a77d,stroke-width:2px
+    style D fill:#fff5e6,stroke:#c4a77d,stroke-width:2px
+    style E fill:#fff5e6,stroke:#4a8a4a,stroke-width:2px
+    style F fill:#fff5e6,stroke:#4a8a4a,stroke-width:3px
+        </div>
+        <p style="margin-top: 15px; font-size: 1.2rem;">Cooperatives represent <span class="highlight">10% of global GDP</span> across 3M+ organizations. The infrastructure exists.</p>
+        <div class="slide-number">16 / 20</div>
+    </div>
+
+    <!-- Slide 14: The Trade -->
+    <div class="slide">
+        <h2>The Trade</h2>
+        <div class="accent-line"></div>
+        <p class="observation" style="margin-bottom: 25px;">What changes when the default is collective rather than individual:</p>
+        <table>
+            <tr>
+                <th>Individual Default</th>
+                <th>Collective Default</th>
+            </tr>
+            <tr>
+                <td>Atomized living; community requires extra effort</td>
+                <td class="green">Community as ambient structure</td>
+            </tr>
+            <tr>
+                <td>Identity tied to employment and consumption</td>
+                <td class="green">Meaning derived from contribution and craft</td>
+            </tr>
+            <tr>
+                <td>Child-rearing as isolated nuclear burden</td>
+                <td class="green">Shared responsibility; distributed care</td>
+            </tr>
+            <tr>
+                <td>Retirement requires individual capital accumulation</td>
+                <td class="green">Mutual support; collective safety net</td>
+            </tr>
+            <tr>
+                <td>Housing costs absorb most income</td>
+                <td class="green">Dramatically lower cost of living</td>
+            </tr>
+        </table>
+        <div class="slide-number">17 / 20</div>
+    </div>
+
+    <!-- Slide 15: The Skeleton -->
+    <div class="slide">
+        <h2>The Skeleton</h2>
+        <div class="accent-line"></div>
+        <p class="observation">What's the minimum viable alternative?</p>
+        <ul style="margin-top: 30px;">
+            <li>A few industrial communes making actual goods</li>
+            <li>Coordinating their economies with cryptography — no banks, no middlemen</li>
+            <li>Insuring each other against regional collapse</li>
+            <li>Sharing workers, resources, knowledge across borders</li>
+        </ul>
+        <p style="margin-top: 35px; font-size: 1.3rem;">That's the skeleton of something else.</p>
+        <p class="quote" style="margin-top: 20px;">Not utopia. Just: different from what exists.</p>
+        <div class="slide-number">18 / 20</div>
+    </div>
+
+    <!-- Slide 16: Who This Is For -->
+    <div class="slide">
+        <h2>Who This Is For</h2>
+        <div class="accent-line"></div>
+        <p class="observation" style="margin-bottom: 30px;">Collective living has selection effects. It works for some people and not others:</p>
+        <div class="two-column">
+            <div class="card">
+                <h3 style="color: #4a8a4a;">Likely Fit</h3>
+                <ul>
+                    <li>Interdependence over independence</li>
+                    <li>Physical labor doesn't scare you</li>
+                    <li>Group decisions over unilateral control</li>
+                    <li>Long time horizons (years, not months)</li>
+                    <li>Building, not consuming</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3 style="color: #c45a3a;">Likely Not</h3>
+                <ul>
+                    <li>Need for complete autonomy always</li>
+                    <li>Sharing things causes stress</li>
+                    <li>Looking for a vacation home</li>
+                    <li>Expecting someone else to build it</li>
+                    <li>Seeking escape rather than project</li>
+                </ul>
+            </div>
+        </div>
+        <p style="margin-top: 20px; font-size: 1.15rem; color: #8b7355;">Options exist: rural or urban, temporary or permanent, multi-generational or not.</p>
+        <div class="slide-number">19 / 20</div>
+    </div>
+
+    <!-- Slide 17: End -->
+    <div class="slide center slide-with-bg" style="background-image: url('https://www.go-nagano.net/hs-fs/hubfs/blog_assets/komoro_tours/nunobiki-kannon-climb-small.jpg');">
+        <div class="accent-line" style="margin: 0 auto 40px;"></div>
+        <p class="big-text" style="max-width: 800px; margin: 0 auto;">The conditions for the life you want do not exist.</p>
+        <p class="big-text" style="max-width: 800px; margin: 30px auto 0;">They have to be constructed.</p>
+        <p style="margin-top: 50px; font-size: 1.2rem; color: #8b7355;">
+            <span class="highlight">akiyacollective.org</span> · <span class="highlight">zucity.org</span>
+        </p>
+        <div class="slide-number">20 / 20</div>
+    </div>
+
+    <div class="nav-hint">arrow keys or tap to navigate</div>
+
+    <script>
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'base',
+            flowchart: {
+                curve: 'basis',
+                padding: 20
+            }
+        });
+
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+
+        function showSlide(n) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (n + slides.length) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                showSlide(currentSlide + 1);
+            } else if (e.key === 'ArrowLeft') {
+                showSlide(currentSlide - 1);
+            }
+        });
+
+        document.addEventListener('click', (e) => {
+            if (e.clientX > window.innerWidth / 2) {
+                showSlide(currentSlide + 1);
+            } else {
+                showSlide(currentSlide - 1);
+            }
+        });
+    </script>
+</body>
+</html>

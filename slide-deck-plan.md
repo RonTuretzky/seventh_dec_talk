@@ -31,7 +31,7 @@
 - Spirituality
 - Socialness
 - Child rearing
-- Religion/spirituality/kibbutz lived experience/art/philosophy
+- Religion/spirituality/intentional community lived experience/art/philosophy
 - Community is not right for everyone (honest framing)
 
 **Concrete Offerings:**
@@ -81,7 +81,7 @@
 ### Slide 2: The Spiritual Prison
 - "You're spiritually imprisoned"
 - Disillusionment in the current system
-- Same feeling Neot Smadar founders had
+- Same feeling intentional community founders had
 - You want an environment that doesn't exist—so you have to build it
 
 ### Slide 3: The Meta Crisis
@@ -160,7 +160,7 @@
 - Subtitle: From crypto cooperativism to physical community
 
 ### Slide 2: My Lived Experience
-- Kibbutz in Israel (Neot Smadar)
+- Intentional community (collective living)
 - Spirituality, art, philosophy
 - What worked, what didn't scale
 - The freedom beyond freedom
@@ -282,7 +282,7 @@ Use these images to illustrate the kibbutz model and what "building your own env
 | Crisis → Hope → Action | Experience → Ecosystem → Role |
 | Targets: disillusioned seekers | Targets: builders, crypto-native |
 | Shorter, punchier | More detailed, technical |
-| Leads with spiritual prison | Leads with lived kibbutz experience |
+| Leads with spiritual prison | Leads with lived community experience |
 | 12 slides | 14 slides |
 
 ## Recommended Approach
