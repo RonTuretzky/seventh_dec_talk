@@ -730,28 +730,12 @@
         <div class="accent-line"></div>
         <p class="observation" style="margin-bottom: 15px;">Collective living exists on a spectrum. Each level is its own stable configuration:</p>
         <div class="mermaid" style="background: #fff; border-radius: 12px; padding: 20px; border: 1px solid #e8dfd3;">
-%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#fff5e6', 'primaryTextColor': '#2d4a3e', 'primaryBorderColor': '#e07b53', 'lineColor': '#c4a77d', 'secondaryColor': '#faf7f2', 'tertiaryColor': '#fff', 'fontFamily': 'Georgia' }}}%%
 flowchart TB
-    A["🎪 Gatherings & Events"] --> B["🏠 Seasonal Residencies"]
-    B --> C["🤝 Urban Mutual Aid Networks"]
-    C --> D["🌾 Rural Communes"]
-    D --> E["🏭 Industrial Communes"]
-    E --> F["🌐 Networked Industrial Communes"]
-
-    subgraph entry [" "]
-        A
-        B
-    end
-
-    subgraph mid [" "]
-        C
-        D
-    end
-
-    subgraph full [" "]
-        E
-        F
-    end
+    A["Gatherings & Events"] --> B["Seasonal Residencies"]
+    B --> C["Urban Mutual Aid Networks"]
+    C --> D["Rural Communes"]
+    D --> E["Industrial Communes"]
+    E --> F["Networked Industrial Communes"]
 
     style A fill:#fff5e6,stroke:#e07b53,stroke-width:2px
     style B fill:#fff5e6,stroke:#e07b53,stroke-width:2px
