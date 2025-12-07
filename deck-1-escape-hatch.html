@@ -819,7 +819,7 @@ flowchart TB
                             <span style="font-size: 1rem; color: #2d4a3e;">Number of Participants</span>
                             <span style="font-size: 1.1rem; font-weight: 500; color: #e07b53;"><span id="participants-value">20</span> people</span>
                         </div>
-                        <input type="range" id="participants-slider" min="5" max="200" value="20" step="1" style="width: 100%; height: 6px; border-radius: 3px; background: #e8dfd3; outline: none; -webkit-appearance: none; cursor: pointer;">
+                        <input type="range" id="participants-slider" min="1" max="50" value="20" step="1" style="width: 100%; height: 6px; border-radius: 3px; background: #e8dfd3; outline: none; -webkit-appearance: none; cursor: pointer;">
                     </div>
                 </div>
                 <div style="background: #2d4a3e; color: #fff; border-radius: 12px; padding: 15px; text-align: center;">
@@ -846,10 +846,6 @@ flowchart TB
                         <p style="font-size: 0.85rem; color: #8b7355;">Cars Needed</p>
                         <p style="font-size: 1.6rem; font-weight: 500; color: #2d4a3e;"><span id="cars-result">5</span></p>
                     </div>
-                </div>
-                <div style="margin-top: 15px; font-size: 0.8rem; color: #999; line-height: 1.5;">
-                    <p><strong>Chores:</strong> 5hr×7 cooking + 4hr cleaning + 1.5hr×7 dishes = 49.5 hrs/week total</p>
-                    <p><strong>Living cost:</strong> $1,000/person/year deducted from pool</p>
                 </div>
             </div>
         </div>
@@ -995,6 +991,10 @@ flowchart TB
         });
 
         document.addEventListener('click', (e) => {
+            // Don't navigate when interacting with sliders or form elements
+            if (e.target.tagName === 'INPUT' || e.target.closest('.card')) {
+                return;
+            }
             if (e.clientX > window.innerWidth / 2) {
                 showSlide(currentSlide + 1);
             } else {
