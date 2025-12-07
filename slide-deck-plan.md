@@ -172,6 +172,30 @@
 - Hedging against collapse areas
 - Visual: world map with "hedge zones"
 
+#### Neot Smadar Visual References
+Use these images to illustrate the kibbutz model and what "building your own environment" looks like:
+
+**Recommended Images from Neot Smadar:**
+
+1. **The Art Center Tower** - The iconic 120-foot pink tower with passive cooling system
+   - Source: [Flickr Album by nzeldes](https://www.flickr.com/photos/nzeldes/albums/72157625060017945/)
+   - Source: [Wikimedia Commons - Neot Smadar Category](https://commons.wikimedia.org/wiki/Category:Neot_Smadar)
+
+2. **Desert Oasis View** - Palm trees and green gardens in the Negev desert
+   - Source: [Atlas Obscura - Kibbutz Neot Semadar](https://www.atlasobscura.com/places/kibbutz-neot-semadar)
+
+3. **Art Center Night Shot** - The illuminated building at night ("Art Building Neot Semadar Night")
+   - Source: [Wikimedia Commons - Photos by Zeev Barkan](https://commons.wikimedia.org/wiki/Category:Photographs_by_Zeev_Barkan_in_Neot_Smadar)
+
+4. **Workshop/Community Spaces** - Interior shots of the 14 artisan workshops (stained glass, ceramics, textile, wood, metals)
+   - Source: [Neot Semadar Official Site](https://neot-semadar.com/?lang=en)
+
+**Context for Presenter:**
+- Neot Smadar was named one of the "Best Tourism Villages 2025" by UN Tourism
+- The Art Center was built over 15 years by community members themselves
+- Known as the "Taj Mahal of the Middle East" - [ISRAEL21c article](https://www.israel21c.org/the-taj-mahal-of-the-middle-east/)
+- The tower uses ancient Middle Eastern passive cooling techniques (eco-friendly AC)
+
 ### Slide 4: Why Japan Specifically
 - Birth rate decrease = depopulated villages
 - Labor shortage = immigration pathways
