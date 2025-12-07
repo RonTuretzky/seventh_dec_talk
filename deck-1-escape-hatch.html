@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JCommune: The Escape Hatch</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0a0a0a;
+            color: #f0f0f0;
+            overflow: hidden;
+        }
+
+        .slide {
+            width: 100vw;
+            height: 100vh;
+            display: none;
+            padding: 60px 80px;
+            position: relative;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+        }
+
+        .slide.active {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .slide-number {
+            position: absolute;
+            bottom: 30px;
+            right: 40px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 300;
+            margin-bottom: 20px;
+            color: #fff;
+            line-height: 1.2;
+        }
+
+        h2 {
+            font-size: 2.8rem;
+            font-weight: 300;
+            margin-bottom: 40px;
+            color: #fff;
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            color: #888;
+            margin-top: 20px;
+        }
+
+        p {
+            font-size: 1.6rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            color: #ccc;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        li {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            padding-left: 40px;
+            position: relative;
+            color: #ccc;
+            line-height: 1.5;
+        }
+
+        li::before {
+            content: "—";
+            position: absolute;
+            left: 0;
+            color: #4a9eff;
+        }
+
+        .highlight {
+            color: #4a9eff;
+        }
+
+        .quote {
+            font-size: 2rem;
+            font-style: italic;
+            color: #888;
+            border-left: 4px solid #4a9eff;
+            padding-left: 30px;
+            margin: 40px 0;
+        }
+
+        table {
+            width: 80%;
+            margin: 30px 0;
+            border-collapse: collapse;
+            font-size: 1.3rem;
+        }
+
+        th, td {
+            padding: 20px 30px;
+            text-align: left;
+            border-bottom: 1px solid #333;
+        }
+
+        th {
+            color: #4a9eff;
+            font-weight: 500;
+        }
+
+        td {
+            color: #ccc;
+        }
+
+        .pipeline {
+            font-family: 'Courier New', monospace;
+            font-size: 1.4rem;
+            background: #111;
+            padding: 40px;
+            border-radius: 10px;
+            margin: 30px 0;
+            line-height: 2;
+            color: #4a9eff;
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-top: 30px;
+        }
+
+        .column h3 {
+            font-size: 1.6rem;
+            color: #4a9eff;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .center {
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .center h1, .center h2 {
+            text-align: center;
+        }
+
+        .big-text {
+            font-size: 2.2rem;
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        .cta-box {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            border: 1px solid #4a9eff;
+            border-radius: 15px;
+            padding: 40px;
+            margin: 20px 0;
+        }
+
+        .cta-box h3 {
+            color: #4a9eff;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+        }
+
+        .tagline {
+            font-size: 1.8rem;
+            font-style: italic;
+            color: #666;
+            margin-top: 60px;
+            text-align: center;
+        }
+
+        .nav-hint {
+            position: fixed;
+            bottom: 30px;
+            left: 40px;
+            font-size: 12px;
+            color: #444;
+        }
+
+        .accent-line {
+            width: 100px;
+            height: 3px;
+            background: #4a9eff;
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Slide 1: Title -->
+    <div class="slide active center">
+        <h1>JCommune</h1>
+        <p class="subtitle">Crypto-Enhanced Collective Living in Japan</p>
+        <p style="color: #666; margin-top: 40px; font-size: 1.2rem;">A practical path to a different life</p>
+        <div class="slide-number">1 / 12</div>
+    </div>
+
+    <!-- Slide 2: Spiritual Prison -->
+    <div class="slide">
+        <h2>You're Spiritually Imprisoned</h2>
+        <div class="accent-line"></div>
+        <p class="big-text">You feel it. The disillusionment.</p>
+        <p style="margin-top: 40px;">The founders of Neot Smadar felt it too—50 years ago.</p>
+        <p>You want an environment that doesn't exist.</p>
+        <p class="highlight" style="font-size: 1.8rem; margin-top: 40px;">So you have to build it.</p>
+        <div class="slide-number">2 / 12</div>
+    </div>
+
+    <!-- Slide 3: Meta Crisis -->
+    <div class="slide">
+        <h2>The Meta Crisis</h2>
+        <div class="accent-line"></div>
+        <ul>
+            <li>AI is taking jobs—and it's accelerating</li>
+            <li>The middle class is disappearing</li>
+            <li>International tensions are rising</li>
+            <li>Post-imperialism is here, and nobody knows what comes next</li>
+        </ul>
+        <p class="quote">This isn't pessimism. This is pattern recognition.</p>
+        <div class="slide-number">3 / 12</div>
+    </div>
+
+    <!-- Slide 4: Why Japan -->
+    <div class="slide">
+        <h2>Why Japan, Why Now</h2>
+        <div class="accent-line"></div>
+        <table>
+            <tr>
+                <th>Location</th>
+                <th>Avg. Land Cost</th>
+                <th>Quality of Life</th>
+            </tr>
+            <tr>
+                <td>Portugal</td>
+                <td>$$$$</td>
+                <td>High</td>
+            </tr>
+            <tr>
+                <td>US Rural</td>
+                <td>$$$</td>
+                <td>Medium</td>
+            </tr>
+            <tr>
+                <td style="color: #4a9eff;">Japan Akiya</td>
+                <td style="color: #4a9eff;">$</td>
+                <td style="color: #4a9eff;">High</td>
+            </tr>
+        </table>
+        <ul style="margin-top: 40px;">
+            <li><span class="highlight">Birth rate crisis</span> = abandoned villages</li>
+            <li><span class="highlight">Labor shortage</span> = visa pathways</li>
+        </ul>
+        <div class="slide-number">4 / 12</div>
+    </div>
+
+    <!-- Slide 5: Akiya Opportunity -->
+    <div class="slide">
+        <h2>The Akiya Opportunity</h2>
+        <div class="accent-line"></div>
+        <ul>
+            <li>8+ million abandoned houses in Japan</li>
+            <li>Villages desperate for revitalization</li>
+            <li>Akiya Collective proving the model works</li>
+        </ul>
+        <p style="margin-top: 50px; font-size: 1.4rem; color: #fff;">This is the opposite of Network States:</p>
+        <ul>
+            <li>Non-class-gated</li>
+            <li>No VC real estate speculation</li>
+            <li>Coordination, not extraction</li>
+        </ul>
+        <div class="slide-number">5 / 12</div>
+    </div>
+
+    <!-- Slide 6: Crypto as Weapon -->
+    <div class="slide">
+        <h2>Crypto as Weapon, Not Casino</h2>
+        <div class="accent-line"></div>
+        <p style="font-size: 1.4rem; margin-bottom: 40px;">Forget speculation. Cryptography is:</p>
+        <ul>
+            <li><span class="highlight">Defensive infrastructure</span> for collective sovereignty</li>
+            <li><span class="highlight">Data privacy</span> against surveillance capitalism</li>
+            <li><span class="highlight">Coordination tooling</span> for moneyless internal economies</li>
+        </ul>
+        <p class="quote">The cypherpunk commune isn't sci-fi. It's the point.</p>
+        <div class="slide-number">6 / 12</div>
+    </div>
+
+    <!-- Slide 7: Pipeline -->
+    <div class="slide">
+        <h2>The Pipeline</h2>
+        <div class="accent-line"></div>
+        <div class="pipeline">
+            Bread Coop<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;↓<br>
+            Crypto Cooperativism (COVA, dOrg, Bread)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;↓<br>
+            JCommune / AGGroup<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;↓<br>
+            Physical Community in Japan
+        </div>
+        <p style="margin-top: 30px;">Cooperatives are <span class="highlight">10% of global GDP</span>. This isn't fringe.</p>
+        <div class="slide-number">7 / 12</div>
+    </div>
+
+    <!-- Slide 8: What We're Building -->
+    <div class="slide">
+        <h2>What We're Building</h2>
+        <div class="accent-line"></div>
+        <div class="two-column">
+            <div class="column">
+                <h3>Rural Industrial Commune</h3>
+                <ul>
+                    <li>Shared agricultural production</li>
+                    <li>Maker spaces, workshops</li>
+                    <li>Collective equipment ownership</li>
+                </ul>
+            </div>
+            <div class="column">
+                <h3>Urban Collective App</h3>
+                <ul>
+                    <li>City-based coordination</li>
+                    <li>Resource sharing, mutual aid</li>
+                    <li>Gateway to rural residency</li>
+                </ul>
+            </div>
+        </div>
+        <p style="margin-top: 50px;"><span class="highlight">Three Residency Models:</span> Own • Timeshare • Networked</p>
+        <div class="slide-number">8 / 12</div>
+    </div>
+
+    <!-- Slide 9: Not For Everyone -->
+    <div class="slide">
+        <h2>This Is Not For Everyone</h2>
+        <div class="accent-line"></div>
+        <p style="margin-bottom: 40px;">Let's be honest:</p>
+        <ul>
+            <li>Community is not right for everyone</li>
+            <li>Communalism is not right for everyone</li>
+            <li>Some people need cities. Some need isolation.</li>
+        </ul>
+        <p style="margin-top: 50px; color: #fff; font-size: 1.4rem;">We're looking for:</p>
+        <ul>
+            <li>People who want <span class="highlight">interdependence</span>, not just independence</li>
+            <li>Those willing to trade some autonomy for belonging</li>
+            <li>Builders, not just residents</li>
+        </ul>
+        <div class="slide-number">9 / 12</div>
+    </div>
+
+    <!-- Slide 10: What You Get -->
+    <div class="slide">
+        <h2>What You Get</h2>
+        <div class="accent-line"></div>
+        <ul>
+            <li><span class="highlight">Spirituality</span> — without the cult</li>
+            <li><span class="highlight">Socialness</span> — by design, not by accident</li>
+            <li><span class="highlight">Child rearing</span> — in a village, not a nuclear silo</li>
+            <li><span class="highlight">Healthcare & retirement</span> — collective safety net</li>
+            <li><span class="highlight">A hedge</span> — against whatever collapse looks like where you're from</li>
+        </ul>
+        <div class="slide-number">10 / 12</div>
+    </div>
+
+    <!-- Slide 11: Takeaways -->
+    <div class="slide">
+        <h2>What You Walk Away With Today</h2>
+        <div class="accent-line"></div>
+        <div class="cta-box" style="margin-top: 20px;">
+            <h3>1. An Avenue to Join a Different Life</h3>
+            <p style="font-size: 1.3rem;">This path exists. It's being built right now.</p>
+        </div>
+        <div class="cta-box">
+            <h3>2. A Reconceptualization of Crypto</h3>
+            <p style="font-size: 1.3rem;">Not gambling. Coordination infrastructure for post-capitalist life.</p>
+        </div>
+        <div class="slide-number">11 / 12</div>
+    </div>
+
+    <!-- Slide 12: CTA -->
+    <div class="slide center">
+        <h2>Join Us</h2>
+        <div class="accent-line" style="margin: 0 auto 40px;"></div>
+        <div class="two-column" style="width: 80%; margin: 0 auto;">
+            <div class="cta-box">
+                <h3>Decentral Park Meetup</h3>
+                <p style="font-size: 1.2rem;">Start here. Connect with us.</p>
+            </div>
+            <div class="cta-box">
+                <h3>Residency Program</h3>
+                <p style="font-size: 1.2rem;">2025 cohort applications open</p>
+            </div>
+        </div>
+        <p class="tagline">"The freedom beyond freedom is choosing your constraints."</p>
+        <div class="slide-number">12 / 12</div>
+    </div>
+
+    <div class="nav-hint">← → arrow keys to navigate</div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+
+        function showSlide(n) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (n + slides.length) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                showSlide(currentSlide + 1);
+            } else if (e.key === 'ArrowLeft') {
+                showSlide(currentSlide - 1);
+            }
+        });
+
+        document.addEventListener('click', (e) => {
+            if (e.clientX > window.innerWidth / 2) {
+                showSlide(currentSlide + 1);
+            } else {
+                showSlide(currentSlide - 1);
+            }
+        });
+    </script>
+</body>
+</html>
