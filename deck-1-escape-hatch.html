@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rural Collectivism in Japan</title>
-    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
     <style>
         * {
             margin: 0;
@@ -729,36 +728,20 @@
         <h2>A Gradient</h2>
         <div class="accent-line"></div>
         <p class="observation" style="margin-bottom: 15px;">Collective living exists on a spectrum. Each level is its own stable configuration:</p>
-        <div class="mermaid" style="background: #fff; border-radius: 12px; padding: 20px; border: 1px solid #e8dfd3;">
-%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#fff5e6', 'primaryTextColor': '#2d4a3e', 'primaryBorderColor': '#e07b53', 'lineColor': '#c4a77d', 'secondaryColor': '#faf7f2', 'tertiaryColor': '#fff', 'fontFamily': 'Georgia' }}}%%
-flowchart TB
-    A["🎪 Gatherings & Events"] --> B["🏠 Seasonal Residencies"]
-    B --> C["🤝 Urban Mutual Aid Networks"]
-    C --> D["🌾 Rural Communes"]
-    D --> E["🏭 Industrial Communes"]
-    E --> F["🌐 Networked Industrial Communes"]
-
-    subgraph entry [" "]
-        A
-        B
-    end
-
-    subgraph mid [" "]
-        C
-        D
-    end
-
-    subgraph full [" "]
-        E
-        F
-    end
-
-    style A fill:#fff5e6,stroke:#e07b53,stroke-width:2px
-    style B fill:#fff5e6,stroke:#e07b53,stroke-width:2px
-    style C fill:#fff5e6,stroke:#c4a77d,stroke-width:2px
-    style D fill:#fff5e6,stroke:#c4a77d,stroke-width:2px
-    style E fill:#fff5e6,stroke:#4a8a4a,stroke-width:2px
-    style F fill:#fff5e6,stroke:#4a8a4a,stroke-width:3px
+        <div style="background: #fff; border-radius: 12px; padding: 30px; border: 1px solid #e8dfd3; display: flex; flex-direction: column; align-items: center;">
+            <div style="display: flex; flex-direction: column; gap: 12px; align-items: center;">
+                <div style="background: #fff5e6; border: 2px solid #e07b53; border-radius: 8px; padding: 12px 24px; font-size: 1.1rem; color: #2d4a3e;">Gatherings & Events</div>
+                <div style="color: #c4a77d; font-size: 1.5rem;">↓</div>
+                <div style="background: #fff5e6; border: 2px solid #e07b53; border-radius: 8px; padding: 12px 24px; font-size: 1.1rem; color: #2d4a3e;">Seasonal Residencies</div>
+                <div style="color: #c4a77d; font-size: 1.5rem;">↓</div>
+                <div style="background: #fff5e6; border: 2px solid #c4a77d; border-radius: 8px; padding: 12px 24px; font-size: 1.1rem; color: #2d4a3e;">Urban Mutual Aid Networks</div>
+                <div style="color: #c4a77d; font-size: 1.5rem;">↓</div>
+                <div style="background: #fff5e6; border: 2px solid #c4a77d; border-radius: 8px; padding: 12px 24px; font-size: 1.1rem; color: #2d4a3e;">Rural Communes</div>
+                <div style="color: #c4a77d; font-size: 1.5rem;">↓</div>
+                <div style="background: #fff5e6; border: 2px solid #4a8a4a; border-radius: 8px; padding: 12px 24px; font-size: 1.1rem; color: #2d4a3e;">Industrial Communes</div>
+                <div style="color: #c4a77d; font-size: 1.5rem;">↓</div>
+                <div style="background: #fff5e6; border: 3px solid #4a8a4a; border-radius: 8px; padding: 12px 24px; font-size: 1.1rem; color: #2d4a3e; font-weight: 500;">Networked Industrial Communes</div>
+            </div>
         </div>
         <p style="margin-top: 15px; font-size: 1.2rem;">Cooperatives represent <span class="highlight">10% of global GDP</span> across 3M+ organizations. The infrastructure exists.</p>
         <div class="slide-number">15 / 20</div>
@@ -907,15 +890,6 @@ flowchart TB
     <div class="nav-hint">arrow keys or tap to navigate</div>
 
     <script>
-        mermaid.initialize({
-            startOnLoad: true,
-            theme: 'base',
-            flowchart: {
-                curve: 'basis',
-                padding: 20
-            }
-        });
-
         let currentSlide = 0;
         const slides = document.querySelectorAll('.slide');
 
