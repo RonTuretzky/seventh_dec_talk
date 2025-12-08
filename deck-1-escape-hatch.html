@@ -799,11 +799,17 @@
                         </div>
                         <input type="range" id="participants-slider" min="1" max="50" value="20" step="1" style="width: 100%; height: 6px; border-radius: 3px; background: #e8dfd3; outline: none; -webkit-appearance: none; cursor: pointer;">
                     </div>
+                    <div style="margin-top: 15px; display: flex; align-items: center; gap: 10px;">
+                        <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 0.95rem; color: #2d4a3e;">
+                            <input type="checkbox" id="living-costs-toggle" style="width: 18px; height: 18px; cursor: pointer; accent-color: #e07b53;">
+                            Subtract living costs ($1.2K/mo per person)
+                        </label>
+                    </div>
                 </div>
                 <div style="background: #2d4a3e; color: #fff; border-radius: 12px; padding: 15px; text-align: center;">
-                    <p style="font-size: 0.9rem; color: #c4a77d; margin-bottom: 5px;">Net Collective Capital</p>
+                    <p style="font-size: 0.9rem; color: #c4a77d; margin-bottom: 5px;" id="capital-label">Collective Capital</p>
                     <p style="font-size: 1.8rem; font-weight: 500; color: #7ec87e;">$<span id="net-capital">0</span></p>
-                    <p style="font-size: 0.8rem; color: #c4a77d;">Pool: $<span id="gross-capital">200,000</span> − Living: $<span id="living-costs">288,000</span>/yr</p>
+                    <p style="font-size: 0.8rem; color: #c4a77d;" id="capital-breakdown">Pool: $<span id="gross-capital">200,000</span></p>
                 </div>
             </div>
             <!-- Right: Results -->
@@ -896,6 +902,7 @@
         (function() {
             const shareSlider = document.getElementById('share-slider');
             const participantsSlider = document.getElementById('participants-slider');
+            const livingCostsToggle = document.getElementById('living-costs-toggle');
             const shareValue = document.getElementById('share-value');
             const participantsValue = document.getElementById('participants-value');
             const hoursResult = document.getElementById('hours-result');
@@ -903,7 +910,8 @@
             const carsResult = document.getElementById('cars-result');
             const netCapital = document.getElementById('net-capital');
             const grossCapital = document.getElementById('gross-capital');
-            const livingCosts = document.getElementById('living-costs');
+            const capitalLabel = document.getElementById('capital-label');
+            const capitalBreakdown = document.getElementById('capital-breakdown');
 
             const HOUSE_COST = 5000;
             const PEOPLE_PER_CAR = 4;
@@ -917,13 +925,14 @@
             function calculate() {
                 const share = parseInt(shareSlider.value);
                 const participants = parseInt(participantsSlider.value);
+                const subtractLiving = livingCostsToggle.checked;
 
                 shareValue.textContent = formatNumber(share);
                 participantsValue.textContent = participants;
 
                 const totalGross = share * participants;
                 const totalLivingCost = LIVING_COST_PER_PERSON_PER_YEAR * participants;
-                const totalNet = totalGross - totalLivingCost;
+                const totalNet = subtractLiving ? totalGross - totalLivingCost : totalGross;
 
                 const hoursPerPerson = WEEKLY_CHORE_HOURS / participants;
                 const houses = Math.floor(Math.max(0, totalNet) / HOUSE_COST);
@@ -934,11 +943,19 @@
                 carsResult.textContent = formatNumber(cars);
                 netCapital.textContent = formatNumber(Math.max(0, totalNet));
                 grossCapital.textContent = formatNumber(totalGross);
-                livingCosts.textContent = formatNumber(totalLivingCost);
+
+                if (subtractLiving) {
+                    capitalLabel.textContent = 'Net Collective Capital';
+                    capitalBreakdown.innerHTML = 'Pool: $' + formatNumber(totalGross) + ' − Living: $' + formatNumber(totalLivingCost) + '/yr';
+                } else {
+                    capitalLabel.textContent = 'Collective Capital';
+                    capitalBreakdown.innerHTML = 'Pool: $' + formatNumber(totalGross);
+                }
             }
 
             shareSlider.addEventListener('input', calculate);
             participantsSlider.addEventListener('input', calculate);
+            livingCostsToggle.addEventListener('change', calculate);
             calculate();
         })();
 
