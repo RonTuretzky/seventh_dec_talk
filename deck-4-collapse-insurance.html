@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collapse Insurance Co.</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Courier New', monospace;
+            background: #0f0f0f;
+            color: #e0e0e0;
+            overflow: hidden;
+        }
+        .slide {
+            width: 100vw;
+            height: 100vh;
+            display: none;
+            padding: 60px 80px;
+            position: relative;
+            background: #0f0f0f;
+        }
+        .slide.active {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .slide-number {
+            position: absolute;
+            bottom: 30px;
+            right: 40px;
+            font-size: 12px;
+            color: #444;
+        }
+        h1 {
+            font-size: 3rem;
+            font-weight: 400;
+            margin-bottom: 30px;
+            color: #00ff88;
+            line-height: 1.3;
+        }
+        h2 {
+            font-size: 2.2rem;
+            font-weight: 400;
+            margin-bottom: 35px;
+            color: #00ff88;
+        }
+        p {
+            font-size: 1.4rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            color: #aaa;
+        }
+        .green { color: #00ff88; }
+        .red { color: #ff6b6b; }
+        .yellow { color: #ffd93d; }
+        .dim { color: #666; }
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        li {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            padding-left: 35px;
+            position: relative;
+            color: #aaa;
+            line-height: 1.5;
+        }
+        li::before {
+            content: ">";
+            position: absolute;
+            left: 0;
+            color: #00ff88;
+        }
+        .center {
+            text-align: center;
+            align-items: center;
+        }
+        .box {
+            border: 1px solid #333;
+            padding: 30px;
+            margin: 25px 0;
+            background: #1a1a1a;
+        }
+        .box h3 {
+            color: #00ff88;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+        .premium-calc {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 30px;
+            align-items: center;
+            margin: 40px 0;
+            font-size: 1.3rem;
+        }
+        .premium-calc .arrow {
+            color: #00ff88;
+            font-size: 2rem;
+        }
+        .flowchart {
+            font-size: 1.1rem;
+            line-height: 2.2;
+            color: #888;
+            margin: 30px 0;
+        }
+        .flowchart .node {
+            color: #00ff88;
+            background: #1a1a1a;
+            padding: 8px 15px;
+            border: 1px solid #333;
+            display: inline-block;
+            margin: 5px 0;
+        }
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 30px;
+        }
+        .metric {
+            text-align: center;
+            padding: 30px;
+            border: 1px solid #333;
+        }
+        .metric .value {
+            font-size: 3rem;
+            color: #00ff88;
+        }
+        .metric .label {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 10px;
+        }
+        .scenario {
+            border-left: 3px solid #ff6b6b;
+            padding-left: 25px;
+            margin: 30px 0;
+        }
+        .scenario.good {
+            border-color: #00ff88;
+        }
+        .nav-hint {
+            position: fixed;
+            bottom: 30px;
+            left: 40px;
+            font-size: 11px;
+            color: #333;
+        }
+        .blink {
+            animation: blink 1s infinite;
+        }
+        @keyframes blink {
+            50% { opacity: 0.5; }
+        }
+        .ascii-art {
+            font-size: 0.9rem;
+            line-height: 1.4;
+            color: #444;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Slide 1: Title -->
+    <div class="slide active center">
+        <pre class="ascii-art">
+   ╔═══════════════════════════════════════╗
+   ║                                       ║
+   ║     COLLAPSE INSURANCE CO.            ║
+   ║                                       ║
+   ║     mutual coverage for uncertain     ║
+   ║     times since [REDACTED]            ║
+   ║                                       ║
+   ╚═══════════════════════════════════════╝
+        </pre>
+        <p style="margin-top: 40px;">what if your friends could insure you against fascism?</p>
+        <div class="slide-number">1 / 12</div>
+    </div>
+
+    <!-- Slide 2: The Problem -->
+    <div class="slide">
+        <h2>// the situation</h2>
+        <p>You can insure your car. Your house. Your phone. Your life.</p>
+        <p>But you can't insure against:</p>
+        <ul style="margin-top: 30px;">
+            <li>Your country sliding into authoritarianism</li>
+            <li>Your region becoming unlivable (climate, war, economy)</li>
+            <li>The social contract just... not holding up</li>
+        </ul>
+        <p style="margin-top: 40px;">These are the actual risks. And there's no product for them.</p>
+        <p class="dim">Until now, maybe.</p>
+        <div class="slide-number">2 / 12</div>
+    </div>
+
+    <!-- Slide 3: Traditional Insurance -->
+    <div class="slide">
+        <h2>// how insurance works (normally)</h2>
+        <div class="box">
+            <p>Pool money → Actuary calculates risk → Payout when bad thing happens</p>
+        </div>
+        <p style="margin-top: 30px;">Problem: Who's the actuary for "society is collapsing"?</p>
+        <p>Problem: What's the payout? Cash doesn't help if there's nowhere to go.</p>
+        <p class="green" style="margin-top: 40px;">What if the insurance wasn't money—it was a place?</p>
+        <div class="slide-number">3 / 12</div>
+    </div>
+
+    <!-- Slide 4: The Mechanism -->
+    <div class="slide">
+        <h2>// the mechanism</h2>
+        <div class="flowchart">
+            <span class="node">Industrial Communes</span> form a network<br>
+            → Each commune contributes to <span class="node">Mutual Insurance Pool</span><br>
+            → <span class="node">Prediction Market</span> (run by communes) tracks regional risks<br>
+            → When risk threshold hit: <span class="node">Relocation Insurance</span> activates<br>
+            → Members can move to another commune in the network
+        </div>
+        <p style="margin-top: 30px;">The premium? Determined by the prediction market.</p>
+        <p>The payout? A place to live and work. Not a check.</p>
+        <div class="slide-number">4 / 12</div>
+    </div>
+
+    <!-- Slide 5: What Triggers It -->
+    <div class="slide">
+        <h2>// trigger conditions</h2>
+        <div class="two-col">
+            <div class="scenario">
+                <h3 class="red">Human Rights Index drops below threshold</h3>
+                <p style="font-size: 1.1rem;">Communes vote on what counts. Press freedom? Minority rights? Rule of law?</p>
+                <p style="font-size: 1.1rem;">When your region fails the test, you can leave.</p>
+            </div>
+            <div class="scenario">
+                <h3 class="red">Natural Disaster / Climate Event</h3>
+                <p style="font-size: 1.1rem;">Your area becomes unlivable (flood, fire, drought).</p>
+                <p style="font-size: 1.1rem;">Network absorbs you. You don't become a refugee—you relocate to a node you already belong to.</p>
+            </div>
+        </div>
+        <p style="margin-top: 40px;" class="dim">The communes decide the thresholds. Not a corporation. Not a government.</p>
+        <div class="slide-number">5 / 12</div>
+    </div>
+
+    <!-- Slide 6: The Prediction Market -->
+    <div class="slide">
+        <h2>// the prediction market</h2>
+        <p>Who sets the premium? <span class="green">You do.</span></p>
+        <div class="box" style="margin-top: 30px;">
+            <h3>How it works:</h3>
+            <ul>
+                <li>Commune members stake on regional stability forecasts</li>
+                <li>Market aggregates predictions into risk scores</li>
+                <li>Higher risk = higher premium for that region's members</li>
+                <li>If you're wrong about your region, you pay more. If you're right, you pay less.</li>
+            </ul>
+        </div>
+        <p style="margin-top: 30px;">This creates an incentive to <span class="green">actually pay attention</span> to what's happening around you.</p>
+        <div class="slide-number">6 / 12</div>
+    </div>
+
+    <!-- Slide 7: Why This Works -->
+    <div class="slide">
+        <h2>// why this isn't crazy</h2>
+        <ul>
+            <li>Mutual insurance societies have existed for centuries (before corporations ate them)</li>
+            <li>Prediction markets are consistently better at forecasting than experts</li>
+            <li>Crypto makes cross-border pooling and payouts actually possible</li>
+            <li>The "payout" is real estate and community—things that hold value in collapse scenarios</li>
+        </ul>
+        <p style="margin-top: 40px;">This is just old ideas + new infrastructure.</p>
+        <div class="slide-number">7 / 12</div>
+    </div>
+
+    <!-- Slide 8: The Imperial Gap -->
+    <div class="slide">
+        <h2>// on finding gaps</h2>
+        <p>Empires expand. Empires contract. They can't be everywhere.</p>
+        <p style="margin-top: 30px;">There are always zones they don't care about:</p>
+        <ul>
+            <li>Depopulating rural areas (not economically valuable)</li>
+            <li>Places in political transition (too chaotic to control)</li>
+            <li>Regions with difficult geography (not worth the trouble)</li>
+        </ul>
+        <p style="margin-top: 40px;"><span class="green">Rural Japan right now:</span> 8 million empty houses. Villages paying people to move there. Labor shortage = visa pathways.</p>
+        <p class="dim">This is a gap. Gaps don't last forever.</p>
+        <div class="slide-number">8 / 12</div>
+    </div>
+
+    <!-- Slide 9: The Network -->
+    <div class="slide">
+        <h2>// the network</h2>
+        <p>One commune is vulnerable. A network of communes is resilient.</p>
+        <div class="premium-calc">
+            <div class="box">
+                Commune A<br>
+                <span class="dim">Rural Japan</span>
+            </div>
+            <div class="arrow">⟷</div>
+            <div class="box">
+                Commune B<br>
+                <span class="dim">Portugal hills</span>
+            </div>
+        </div>
+        <div class="premium-calc">
+            <div class="box">
+                Commune C<br>
+                <span class="dim">Appalachian US</span>
+            </div>
+            <div class="arrow">⟷</div>
+            <div class="box">
+                Commune D<br>
+                <span class="dim">Argentina pampa</span>
+            </div>
+        </div>
+        <p>When Japan gets weird, you go to Portugal. When Portugal gets weird, someone comes to Japan.</p>
+        <p class="green">Distributed hedging against localized collapse.</p>
+        <div class="slide-number">9 / 12</div>
+    </div>
+
+    <!-- Slide 10: Post-Capitalism MVP -->
+    <div class="slide">
+        <h2>// minimum viable post-capitalism</h2>
+        <p>What do you need for an economy that isn't capitalism?</p>
+        <ul style="margin-top: 30px;">
+            <li>Productive capacity (communes that make things)</li>
+            <li>Coordination mechanism (crypto, not banks)</li>
+            <li>Risk sharing (mutual insurance)</li>
+            <li>Mobility (the network)</li>
+        </ul>
+        <p style="margin-top: 40px;">A few industrial communes, coordinating production with crypto, insuring each other against collapse.</p>
+        <p class="green">That's... the MVP. That's the skeleton of something else.</p>
+        <div class="slide-number">10 / 12</div>
+    </div>
+
+    <!-- Slide 11: The Ask -->
+    <div class="slide">
+        <h2>// the question</h2>
+        <p class="green" style="font-size: 1.8rem;">Why aren't you hedged?</p>
+        <p style="margin-top: 40px;">You hedge your portfolio. You diversify your investments.</p>
+        <p>But your physical location? Your community? Your food supply?</p>
+        <p>All eggs, one basket.</p>
+        <div class="scenario good" style="margin-top: 50px;">
+            <p>What would it take for you to own a piece of something, somewhere, with people you trust, that could catch you if things got bad?</p>
+        </div>
+        <div class="slide-number">11 / 12</div>
+    </div>
+
+    <!-- Slide 12: End -->
+    <div class="slide center">
+        <pre class="ascii-art">
+   ╔═══════════════════════════════════════╗
+   ║                                       ║
+   ║     COVERAGE AVAILABLE                ║
+   ║                                       ║
+   ║     premium: participation            ║
+   ║     payout: belonging                 ║
+   ║                                       ║
+   ╚═══════════════════════════════════════╝
+        </pre>
+        <p style="margin-top: 40px;" class="dim">this is not financial advice. this is mutual aid with extra steps.</p>
+        <div class="slide-number">12 / 12</div>
+    </div>
+
+    <div class="nav-hint">← → to navigate</div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        function showSlide(n) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (n + slides.length) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') showSlide(currentSlide + 1);
+            else if (e.key === 'ArrowLeft') showSlide(currentSlide - 1);
+        });
+        document.addEventListener('click', (e) => {
+            if (e.clientX > window.innerWidth / 2) showSlide(currentSlide + 1);
+            else showSlide(currentSlide - 1);
+        });
+    </script>
+</body>
+</html>
